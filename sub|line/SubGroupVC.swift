@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var userTextfield: UITextField!
     @IBOutlet weak var postTextfield: UITextField!
@@ -20,8 +20,33 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         let nib = UINib(nibName: "PostTableCellView", bundle: nil)
         postTableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        self.userTextfield.delegate = self
+        self.postTextfield.delegate = self
     }
     
+    //keyboard view logic
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subgroup.getAllPosts().count
     }
