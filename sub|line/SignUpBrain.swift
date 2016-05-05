@@ -13,20 +13,24 @@ import RealmSwift
 class SignUpBrain {
     
     let realm = try! Realm()
+    let db = DataBase()
     
-    func signUp(username:String, password:String) -> Bool{
-        let newUser = User()
-        newUser.makeNewUser(username, password: password)
-        let existingUser = realm.objects(User).filter("username == '\(username)'").first
-        if existingUser == nil {
-            try! realm.write() {
-                print("new user signed up!")
-                realm.add(newUser)
-            }
-            return true //shouldn't this be in the try statement? no... no it shouldn't
-        } else {
-            print("username exists")
+    func signUp(username:String, password:String) -> Bool {
+        if username == "" || password == ""{
             return false
+        } else {
+            if !db.isUser(username){
+                let newUser = User()
+                newUser.makeNewUser(username, password: password)
+                try! realm.write() {
+                    print("new user signed up!")
+                    realm.add(newUser)
+                }
+                return true
+            } else {
+                print("username exists")
+                return false
+            }
         }
     }
 }

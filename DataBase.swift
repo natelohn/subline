@@ -11,16 +11,28 @@ import RealmSwift
 
 
 class DataBase {
+    
     let realm = try! Realm()
     
+    func isUser(username:String) -> Bool {
+        let user = realm.objects(User).filter("username == '\(username)'").first
+        return user != nil
+    }
+    
+    
+    //will crash if group is not in system
     func getUserFromDB(username:String) -> User{
         let user = realm.objects(User).filter("username == '\(username)'").first
         return user!
     }
     
+    
     func printAllUsers(){
+        print("-----all users-----")
         let users = realm.objects(User)
-        print(users)
+        for user in users {
+            user.printAllGroups()
+        }
     }
     
     func clearDB(){

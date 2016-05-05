@@ -89,7 +89,7 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         post.setText(postText)
         post.setDate(date)
         print(post.getDate())
-        subgroup.addPost(post)
+//        subgroup.addPost(post)
         
         postTableView.reloadData()
     }

@@ -41,7 +41,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signupButtonPushed:" destination="RnF-Cx-NZL" eventType="touchUpInside" id="f3A-Hm-6A1"/>
-                                    <segue destination="TTa-kF-Wwq" kind="show" identifier="toGroupVC" id="s12-hd-Z8b"/>
+                                    <segue destination="TTa-kF-Wwq" kind="show" identifier="toCreateGroupVC" id="s12-hd-Z8b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofB-TE-Z0f">
@@ -63,12 +63,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOy-a4-aCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="1210"/>
+            <point key="canvasLocation" x="-2934" y="2026"/>
         </scene>
-        <!--GroupsVC-->
+        <!--Create GroupsVC-->
         <scene sceneID="5Dx-sP-ent">
             <objects>
-                <viewController id="TTa-kF-Wwq" customClass="GroupsVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TTa-kF-Wwq" customClass="CreateGroupsVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mEL-ww-m1D"/>
                         <viewControllerLayoutGuide type="bottom" id="G3J-dl-QRp"/>
@@ -102,10 +102,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-Ah-gy6">
-                                <rect key="frame" x="109" y="238" width="48" height="30"/>
+                                <rect key="frame" x="200" y="9" width="48" height="30"/>
                                 <state key="normal" title="log out"/>
                                 <connections>
                                     <segue destination="gRW-Te-D3c" kind="show" id="VjI-nG-LVc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50m-tR-BwD">
+                                <rect key="frame" x="99" y="226" width="92" height="30"/>
+                                <state key="normal" title="Create Group"/>
+                                <connections>
+                                    <action selector="createGroupPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="LfG-2T-Ccg"/>
+                                    <segue destination="oqf-th-8bA" kind="show" identifier="toCreateSubgroupVC" id="Vck-v5-10Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,7 +126,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPq-Jb-jfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="-510"/>
+            <point key="canvasLocation" x="-2049" y="1128"/>
+        </scene>
+        <!--Create SubgroupVC-->
+        <scene sceneID="l2u-OA-I2l">
+            <objects>
+                <viewController id="oqf-th-8bA" customClass="CreateSubgroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ECT-5i-16E"/>
+                        <viewControllerLayoutGuide type="bottom" id="7L5-Xv-XIh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8cb-jc-zJR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="subgroup" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdk-6c-QjK">
+                                <rect key="frame" x="81" y="76" width="191" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="member" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Za-em-tZ9">
+                                <rect key="frame" x="81" y="181" width="191" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDh-f4-fPU">
+                                <rect key="frame" x="129" y="114" width="96" height="30"/>
+                                <state key="normal" title="add subgroup"/>
+                                <connections>
+                                    <action selector="addSubgroupPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="Vy0-dr-Pba"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-yc-Huu">
+                                <rect key="frame" x="118" y="285" width="117" height="30"/>
+                                <state key="normal" title="Create Subgroup"/>
+                                <connections>
+                                    <action selector="createSubgroupPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="LqT-my-vlH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH1-D3-ctC">
+                                <rect key="frame" x="133" y="219" width="87" height="30"/>
+                                <state key="normal" title="add member"/>
+                                <connections>
+                                    <action selector="addMemberPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="26c-EK-0hP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="memberTextField" destination="3Za-em-tZ9" id="E1J-X3-fST"/>
+                        <outlet property="subgroupTextField" destination="zdk-6c-QjK" id="joz-ne-cLb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmB-ap-ahQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1156" y="1128"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="6y0-He-efq">
@@ -149,7 +212,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPushed:" destination="gRW-Te-D3c" eventType="touchUpInside" id="OaR-O7-YQF"/>
-                                    <segue destination="TTa-kF-Wwq" kind="show" identifier="toGroupVC" id="0P9-UJ-5g5"/>
+                                    <segue destination="TTa-kF-Wwq" kind="show" identifier="toCreateGroupVC" id="0P9-UJ-5g5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-un-GQ5">
@@ -220,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WdZ-1G-3Lm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="344"/>
+            <point key="canvasLocation" x="-2934" y="1128"/>
         </scene>
         <!--AllGroups-->
         <scene sceneID="RXS-BC-Fzi">
@@ -308,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVB-MT-NvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="344"/>
+            <point key="canvasLocation" x="1340" y="1496"/>
         </scene>
         <!--newSubGroup-->
         <scene sceneID="GTb-od-IfT">

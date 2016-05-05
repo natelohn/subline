@@ -19,10 +19,12 @@
 		468BAAFC1CD1F9DA00442702 /* SubGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */; };
 		469E50A21CD9CA5600ABDA8B /* LoginBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */; };
 		469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50A31CD9CAE000ABDA8B /* SignUpBrain.swift */; };
-		469E50AC1CD9E41100ABDA8B /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AB1CD9E41100ABDA8B /* GroupsVC.swift */; };
-		469E50AE1CD9E60000ABDA8B /* GroupsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AD1CD9E60000ABDA8B /* GroupsBrain.swift */; };
+		469E50AC1CD9E41100ABDA8B /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AB1CD9E41100ABDA8B /* CreateGroupsVC.swift */; };
+		469E50AE1CD9E60000ABDA8B /* GroupBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AD1CD9E60000ABDA8B /* GroupBrain.swift */; };
 		469E50B01CD9E61900ABDA8B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AF1CD9E61900ABDA8B /* Group.swift */; };
 		469E50B21CDA98A000ABDA8B /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50B11CDA98A000ABDA8B /* DataBase.swift */; };
+		46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */; };
+		46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */; };
 		46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9701CD94D9000C1554C /* LoginVC.swift */; };
 		46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9721CD94DD800C1554C /* SignUpVC.swift */; };
 		46F5C9751CD96E0E00C1554C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9741CD96E0E00C1554C /* User.swift */; };
@@ -62,10 +64,12 @@
 		468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubGroupVC.swift; sourceTree = "<group>"; };
 		469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBrain.swift; sourceTree = "<group>"; };
 		469E50A31CD9CAE000ABDA8B /* SignUpBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBrain.swift; sourceTree = "<group>"; };
-		469E50AB1CD9E41100ABDA8B /* GroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsVC.swift; path = ../GroupsVC.swift; sourceTree = "<group>"; };
-		469E50AD1CD9E60000ABDA8B /* GroupsBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsBrain.swift; sourceTree = "<group>"; };
+		469E50AB1CD9E41100ABDA8B /* CreateGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGroupsVC.swift; path = ../CreateGroupsVC.swift; sourceTree = "<group>"; };
+		469E50AD1CD9E60000ABDA8B /* GroupBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupBrain.swift; sourceTree = "<group>"; };
 		469E50AF1CD9E61900ABDA8B /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../Group.swift; sourceTree = "<group>"; };
 		469E50B11CDA98A000ABDA8B /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBase.swift; path = ../DataBase.swift; sourceTree = "<group>"; };
+		46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubgroupVC.swift; sourceTree = "<group>"; };
+		46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubgroupBrain.swift; sourceTree = "<group>"; };
 		46F5C9701CD94D9000C1554C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = ../LoginVC.swift; sourceTree = "<group>"; };
 		46F5C9721CD94DD800C1554C /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		46F5C9741CD96E0E00C1554C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -132,7 +136,8 @@
 			children = (
 				46F5C9701CD94D9000C1554C /* LoginVC.swift */,
 				46F5C9721CD94DD800C1554C /* SignUpVC.swift */,
-				469E50AB1CD9E41100ABDA8B /* GroupsVC.swift */,
+				469E50AB1CD9E41100ABDA8B /* CreateGroupsVC.swift */,
+				46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */,
 				468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */,
 				46621BBA1CD2018600B402E2 /* PostTableCell.swift */,
 			);
@@ -142,7 +147,8 @@
 		469E50A61CD9D5C900ABDA8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				469E50AD1CD9E60000ABDA8B /* GroupsBrain.swift */,
+				46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */,
+				469E50AD1CD9E60000ABDA8B /* GroupBrain.swift */,
 				469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */,
 				469E50A31CD9CAE000ABDA8B /* SignUpBrain.swift */,
 			);
@@ -153,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				469E50B11CDA98A000ABDA8B /* DataBase.swift */,
-				469E50AF1CD9E61900ABDA8B /* Group.swift */,
 				46F5C9741CD96E0E00C1554C /* User.swift */,
+				469E50AF1CD9E61900ABDA8B /* Group.swift */,
 				460748421CD2096900245E7F /* Subgroup.swift */,
 				460748441CD209A900245E7F /* Post.swift */,
 			);
@@ -264,18 +270,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */,
+				46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */,
 				460748431CD2096900245E7F /* Subgroup.swift in Sources */,
+				46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */,
 				468BAAE91CD1F8D900442702 /* AppDelegate.swift in Sources */,
 				469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */,
 				469E50B21CDA98A000ABDA8B /* DataBase.swift in Sources */,
-				469E50AE1CD9E60000ABDA8B /* GroupsBrain.swift in Sources */,
+				469E50AE1CD9E60000ABDA8B /* GroupBrain.swift in Sources */,
 				46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */,
 				469E50B01CD9E61900ABDA8B /* Group.swift in Sources */,
 				46F5C9751CD96E0E00C1554C /* User.swift in Sources */,
 				469E50A21CD9CA5600ABDA8B /* LoginBrain.swift in Sources */,
 				46621BBB1CD2018600B402E2 /* PostTableCell.swift in Sources */,
 				468BAAFC1CD1F9DA00442702 /* SubGroupVC.swift in Sources */,
-				469E50AC1CD9E41100ABDA8B /* GroupsVC.swift in Sources */,
+				469E50AC1CD9E41100ABDA8B /* CreateGroupsVC.swift in Sources */,
 				460748451CD209A900245E7F /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
