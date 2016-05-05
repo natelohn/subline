@@ -15,8 +15,8 @@ class User: Object {
     
     dynamic var username = ""
     dynamic var password = ""
-//    dynamic var groups = Group[]()
-    
+    let groups = List<Group>()
+    let subgroups = List<Subgroup>()
     
     func makeNewUser(username: String, password: String){
         self.username = username
@@ -30,6 +30,62 @@ class User: Object {
     
     func setNewPassword(newPassword:String){
         self.password = newPassword
+    }
+    
+    func addGroup(newGroup:Group){
+        
+        try! Realm().write {
+            groups.append(newGroup)
+        }
+    }
+    
+    
+    func removeGroup(exGroup:Group){
+        for (index, group) in groups.enumerate() {
+            if group == exGroup{
+                groups.removeAtIndex(index)
+            }
+        }
+    }
+    
+    func addSubgroup(newSubgroup:Subgroup){
+        
+        try! Realm().write {
+            subgroups.append(newSubgroup)
+        }
+    }
+    
+    
+    func removeSubgroup(exSubgroup:Subgroup){
+        for (index, subgroup) in subgroups.enumerate() {
+            if subgroup == exSubgroup{
+                subgroups.removeAtIndex(index)
+            }
+        }
+    }
+    
+    
+    
+    
+    //temp
+    func printAllGroups(){
+        print("User: \(username)")
+        for group in groups {
+            print("     Group: \(group.name)")
+            print("     Creator: \(group.creator)")
+            for member in group.members {
+                print("         Member:\(member.username)")
+            }
+            for subgroup in group.subgroups {
+                print("             Subgroup:\(subgroup.name)")
+                print("             Creator:\(subgroup.creator)")
+                for submember in subgroup.members {
+                    print("             Member:\(submember.username)")
+                }
+            }
+
+            
+        }
     }
     
 }

@@ -24,7 +24,7 @@ class LoginVC: UIViewController {
         if(brain.login(username, password: password)){
             print("login sucess!")
             self.username = username
-            self.performSegueWithIdentifier("toGroupVC", sender: sender)
+            self.performSegueWithIdentifier("toCreateGroupVC", sender: sender)
         } else {
             print("login failed :_(")
             let alert = UIAlertController(title: "Failed Login", message: "Incorrect Username or Password", preferredStyle: UIAlertControllerStyle.Alert)
@@ -35,7 +35,7 @@ class LoginVC: UIViewController {
     
     //segue logic
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "toGroupVC" {
+        if identifier == "toCreateGroupVC" {
             if  username == "" {
                 return false
             } else {
@@ -47,8 +47,8 @@ class LoginVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if username != "" {
-            if segue.identifier == "toGroupVC"{
-                let DestinationViewController : GroupsVC = segue.destinationViewController as! GroupsVC
+            if segue.identifier == "toCreateGroupVC"{
+                let DestinationViewController : CreateGroupsVC = segue.destinationViewController as! CreateGroupsVC
                 DestinationViewController.username = username
             }
         }
