@@ -40,11 +40,21 @@ class AllGroupsVC: UIViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Row \(indexPath.row) selected")
+        self.performSegueWithIdentifier("toCreateGroupVC", sender: self) //not sure if self should be something else
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50 //height of the post table cell in the xib file
+    }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toCreateGroupVC"{
+            let DestinationViewController : CreateGroupVC = segue.destinationViewController as! CreateGroupVC
+            DestinationViewController.username = username
+        }
     }
     
     

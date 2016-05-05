@@ -18,43 +18,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCv-kJ-pzS">
-                                <rect key="frame" x="14" y="81" width="222" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-dP-wXk">
-                                <rect key="frame" x="14" y="133" width="222" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPa-Ck-KQk">
-                                <rect key="frame" x="92" y="8" width="61" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUW-2U-Wg6">
-                                <rect key="frame" x="100" y="171" width="50" height="30"/>
-                                <state key="normal" title="sign up">
-                                    <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signupButtonPushed:" destination="RnF-Cx-NZL" eventType="touchUpInside" id="f3A-Hm-6A1"/>
-                                    <segue destination="QVw-Yr-j8m" kind="show" identifier="toAllGroupsVC" id="mdd-oJ-lKj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofB-TE-Z0f">
-                                <rect key="frame" x="103" y="201" width="38" height="30"/>
-                                <state key="normal" title="log in">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gRW-Te-D3c" kind="show" id="sUL-0d-meg"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zok-gM-MOD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPa-Ck-KQk">
+                                        <rect key="frame" x="267" y="75" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCv-kJ-pzS">
+                                        <rect key="frame" x="189" y="148" width="222" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="222" id="mfh-Wu-fxf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-dP-wXk">
+                                        <rect key="frame" x="189" y="200" width="222" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUW-2U-Wg6">
+                                        <rect key="frame" x="275" y="238" width="50" height="30"/>
+                                        <state key="normal" title="sign up">
+                                            <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupButtonPushed:" destination="RnF-Cx-NZL" eventType="touchUpInside" id="f3A-Hm-6A1"/>
+                                            <segue destination="QVw-Yr-j8m" kind="show" identifier="toAllGroupsVC" id="mdd-oJ-lKj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofB-TE-Z0f">
+                                        <rect key="frame" x="278" y="268" width="38" height="30"/>
+                                        <state key="normal" title="log in">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gRW-Te-D3c" kind="show" id="sUL-0d-meg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kPa-Ck-KQk" firstAttribute="centerX" secondItem="ofB-TE-Z0f" secondAttribute="centerX" id="Fkh-FI-zuI"/>
+                                    <constraint firstItem="rjD-dP-wXk" firstAttribute="centerX" secondItem="XUW-2U-Wg6" secondAttribute="centerX" id="JKr-kL-oBP"/>
+                                    <constraint firstItem="kPa-Ck-KQk" firstAttribute="leading" secondItem="zok-gM-MOD" secondAttribute="leading" constant="267" id="MTN-Ub-Pay"/>
+                                    <constraint firstItem="ofB-TE-Z0f" firstAttribute="top" secondItem="XUW-2U-Wg6" secondAttribute="bottom" id="Q6i-c8-TAS"/>
+                                    <constraint firstItem="rjD-dP-wXk" firstAttribute="top" secondItem="FCv-kJ-pzS" secondAttribute="bottom" constant="22" id="Vom-8w-a08"/>
+                                    <constraint firstItem="FCv-kJ-pzS" firstAttribute="centerX" secondItem="zok-gM-MOD" secondAttribute="centerX" id="aN3-xq-ZrU"/>
+                                    <constraint firstItem="XUW-2U-Wg6" firstAttribute="top" secondItem="rjD-dP-wXk" secondAttribute="bottom" constant="8" symbolic="YES" id="aPS-Mf-7Fl"/>
+                                    <constraint firstItem="FCv-kJ-pzS" firstAttribute="top" secondItem="kPa-Ck-KQk" secondAttribute="bottom" constant="52" id="aab-4Q-2vJ"/>
+                                    <constraint firstItem="FCv-kJ-pzS" firstAttribute="trailing" secondItem="rjD-dP-wXk" secondAttribute="trailing" id="gt8-yQ-F3W"/>
+                                    <constraint firstItem="kPa-Ck-KQk" firstAttribute="top" secondItem="zok-gM-MOD" secondAttribute="top" constant="75" id="khy-ux-8a4"/>
+                                    <constraint firstItem="FCv-kJ-pzS" firstAttribute="leading" secondItem="rjD-dP-wXk" secondAttribute="leading" id="pD2-FY-wKI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zok-gM-MOD" firstAttribute="top" secondItem="rug-SQ-NMF" secondAttribute="top" id="Bxg-mE-iwJ"/>
+                            <constraint firstItem="zok-gM-MOD" firstAttribute="leading" secondItem="rug-SQ-NMF" secondAttribute="leading" id="KbD-n6-v1u"/>
+                            <constraint firstAttribute="trailing" secondItem="zok-gM-MOD" secondAttribute="trailing" id="Wey-Bx-ydM"/>
+                            <constraint firstItem="zok-gM-MOD" firstAttribute="bottom" secondItem="ZR0-Ve-n5K" secondAttribute="top" id="jWZ-JG-YlR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="rjD-dP-wXk" id="USQ-co-fng"/>
@@ -65,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="-3749" y="2413"/>
         </scene>
-        <!--Create GroupsVC-->
+        <!--Create GroupVC-->
         <scene sceneID="5Dx-sP-ent">
             <objects>
-                <viewController id="TTa-kF-Wwq" customClass="CreateGroupsVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TTa-kF-Wwq" customClass="CreateGroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mEL-ww-m1D"/>
                         <viewControllerLayoutGuide type="bottom" id="G3J-dl-QRp"/>
@@ -77,47 +105,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8Y-Yh-vhL">
-                                <rect key="frame" x="43" y="47" width="205" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="member" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-rm-xz5">
-                                <rect key="frame" x="43" y="132" width="205" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-QZ-nDY">
-                                <rect key="frame" x="71" y="170" width="149" height="30"/>
-                                <state key="normal" title="add member to group"/>
-                                <connections>
-                                    <action selector="addMemberPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="nSF-Ms-XHb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkw-FG-o20">
-                                <rect key="frame" x="110" y="85" width="71" height="30"/>
-                                <state key="normal" title="add group"/>
-                                <connections>
-                                    <action selector="addGroupButtonPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="8kw-SF-Hg7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-Ah-gy6">
-                                <rect key="frame" x="200" y="9" width="48" height="30"/>
-                                <state key="normal" title="log out"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50m-tR-BwD">
-                                <rect key="frame" x="99" y="226" width="92" height="30"/>
-                                <state key="normal" title="Create Group"/>
-                                <connections>
-                                    <action selector="createGroupPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="LfG-2T-Ccg"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvR-gl-C9p">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Gk-Gc-QGy">
+                                        <rect key="frame" x="0.0" y="154" width="600" height="446"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="a2j-BZ-1dE">
+                                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a2j-BZ-1dE" id="fgN-zK-nlf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="TTa-kF-Wwq" id="Koj-Xj-yxK"/>
+                                            <outlet property="delegate" destination="TTa-kF-Wwq" id="Jhx-5F-xBv"/>
+                                        </connections>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5L-HI-uNx">
+                                        <rect key="frame" x="0.0" y="76" width="600" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50m-tR-BwD">
+                                                <rect key="frame" x="8" y="32" width="92" height="30"/>
+                                                <state key="normal" title="Create Group"/>
+                                                <connections>
+                                                    <action selector="createGroupPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="LfG-2T-Ccg"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="group name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8Y-Yh-vhL">
+                                                <rect key="frame" x="8" y="0.0" width="331" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="allUsersTableView" destination="9Gk-Gc-QGy" id="dJW-x4-KMb"/>
                         <outlet property="groupNameTextField" destination="f8Y-Yh-vhL" id="cIl-zX-NE8"/>
-                        <outlet property="memberNameTextField" destination="fVP-rm-xz5" id="jbI-up-qT7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPq-Jb-jfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,6 +349,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUn-Vw-cOB">
                                         <rect key="frame" x="515" y="25" width="77" height="30"/>
                                         <state key="normal" title="New Group"/>
+                                        <connections>
+                                            <segue destination="TTa-kF-Wwq" kind="show" identifier="toCreateGroupVC" id="4Bk-iN-oAv"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nlq-h4-tVY">
                                         <rect key="frame" x="0.0" y="184" width="600" height="416"/>

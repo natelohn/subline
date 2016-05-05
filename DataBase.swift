@@ -26,6 +26,9 @@ class DataBase {
         return user!
     }
     
+    func getAllUsers() -> [User]{
+        return Array(realm.objects(User))
+    }
     
     func printAllUsers(){
         print("-----all users-----")
