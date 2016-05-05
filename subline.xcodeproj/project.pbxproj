@@ -25,6 +25,7 @@
 		469E50B21CDA98A000ABDA8B /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50B11CDA98A000ABDA8B /* DataBase.swift */; };
 		46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */; };
 		46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */; };
+		46EDE3F61CDB66E700AFBD4B /* AllGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */; };
 		46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9701CD94D9000C1554C /* LoginVC.swift */; };
 		46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9721CD94DD800C1554C /* SignUpVC.swift */; };
 		46F5C9751CD96E0E00C1554C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9741CD96E0E00C1554C /* User.swift */; };
@@ -70,6 +71,7 @@
 		469E50B11CDA98A000ABDA8B /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBase.swift; path = ../DataBase.swift; sourceTree = "<group>"; };
 		46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubgroupVC.swift; sourceTree = "<group>"; };
 		46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubgroupBrain.swift; sourceTree = "<group>"; };
+		46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsVC.swift; path = ../AllGroupsVC.swift; sourceTree = "<group>"; };
 		46F5C9701CD94D9000C1554C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = ../LoginVC.swift; sourceTree = "<group>"; };
 		46F5C9721CD94DD800C1554C /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		46F5C9741CD96E0E00C1554C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				46F5C9701CD94D9000C1554C /* LoginVC.swift */,
 				46F5C9721CD94DD800C1554C /* SignUpVC.swift */,
+				46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */,
 				469E50AB1CD9E41100ABDA8B /* CreateGroupsVC.swift */,
 				46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */,
 				468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */,
@@ -272,6 +275,7 @@
 				46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */,
 				46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */,
 				460748431CD2096900245E7F /* Subgroup.swift in Sources */,
+				46EDE3F61CDB66E700AFBD4B /* AllGroupsVC.swift in Sources */,
 				46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */,
 				468BAAE91CD1F8D900442702 /* AppDelegate.swift in Sources */,
 				469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */,

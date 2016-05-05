@@ -15,7 +15,7 @@ class CreateGroupsVC: UIViewController {
     
     let db = DataBase()
     var user = User()
-    var username:String = ""
+    var username = ""
     var group = Group()
     var members = Set<String>()
     

@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     let brain = LoginBrain()
     
     var user = User()
-    var username:String = ""
+    var username = ""
     
     @IBAction func loginPushed(sender: UIButton) {
         let username = usernameTextField.text!
@@ -24,7 +24,7 @@ class LoginVC: UIViewController {
         if(brain.login(username, password: password)){
             print("login sucess!")
             self.username = username
-            self.performSegueWithIdentifier("toCreateGroupVC", sender: sender)
+            self.performSegueWithIdentifier("toAllGroupsVC", sender: sender)
         } else {
             print("login failed :_(")
             let alert = UIAlertController(title: "Failed Login", message: "Incorrect Username or Password", preferredStyle: UIAlertControllerStyle.Alert)
@@ -35,7 +35,7 @@ class LoginVC: UIViewController {
     
     //segue logic
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "toCreateGroupVC" {
+        if identifier == "toAllGroupsVC" {
             if  username == "" {
                 return false
             } else {
@@ -47,8 +47,8 @@ class LoginVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if username != "" {
-            if segue.identifier == "toCreateGroupVC"{
-                let DestinationViewController : CreateGroupsVC = segue.destinationViewController as! CreateGroupsVC
+            if segue.identifier == "toAllGroupsVC"{
+                let DestinationViewController : AllGroupsVC = segue.destinationViewController as! AllGroupsVC
                 DestinationViewController.username = username
             }
         }
