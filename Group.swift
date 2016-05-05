@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
+
+
+class Group {
+    
+    dynamic var creator = User()
+    dynamic var name = ""
+    dynamic var username = ""
+    
+    
+}

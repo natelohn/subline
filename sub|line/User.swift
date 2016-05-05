@@ -15,6 +15,7 @@ class User: Object {
     
     dynamic var username = ""
     dynamic var password = ""
+//    dynamic var groups = Group[]()
     
     
     func makeNewUser(username: String, password: String){
