@@ -319,7 +319,7 @@
                                         <rect key="frame" x="0.0" y="184" width="600" height="416"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HvQ-yb-Dgi">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" id="HvQ-yb-Dgi">
                                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HvQ-yb-Dgi" id="RA3-Cq-Odp">
@@ -328,6 +328,10 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QVw-Yr-j8m" id="hLb-CX-sKu"/>
+                                            <outlet property="delegate" destination="QVw-Yr-j8m" id="qgk-G3-WrY"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,6 +357,9 @@
                             <constraint firstItem="cXh-Qr-vZr" firstAttribute="leading" secondItem="IGk-ud-Zit" secondAttribute="leading" id="hHQ-Wh-4aN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="groupTableView" destination="nlq-h4-tVY" id="BhQ-3W-OyZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVB-MT-NvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
