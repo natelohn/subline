@@ -27,8 +27,6 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         postTableView.registerNib(nib, forCellReuseIdentifier: "cell")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        self.userTextfield.delegate = self
-        self.postTextfield.delegate = self
     }
     
     //keyboard view logic
@@ -77,7 +75,7 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250 //height of the post table cell in the xib file
+        return 168 //height of the post table cell in the xib file
     }
     
     @IBAction func postButtonPushed(sender: UIButton) {
