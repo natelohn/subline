@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 class Subgroup {
@@ -14,7 +15,7 @@ class Subgroup {
     
     //hard coded post data
     
-    
+    //switch to init 
     
     
     func addPost(post:Post){

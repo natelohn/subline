@@ -10,6 +10,11 @@ import UIKit
 
 class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
+    var hardcodeUsers = ["Nate", "Chris", "Hailey"]
+    var hardcodePosts = ["hahahah", "wtf?", "Ahhhhh!"]
+    var hardcodeTimes = [NSDate(), NSDate(), NSDate()]
+    
+    
     @IBOutlet weak var userTextfield: UITextField!
     @IBOutlet weak var postTextfield: UITextField!
     @IBOutlet weak var postTableView: UITableView!
@@ -48,16 +53,21 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subgroup.getAllPosts().count
+//        return subgroup.getAllPosts().count
+        return hardcodeUsers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell:PostTableCell = self.postTableView.dequeueReusableCellWithIdentifier("cell") as! PostTableCell
-        let post = subgroup.getAllPosts()[indexPath.row]
-        cell.userLabel.text = post.getUser()
-        cell.postLabel.text = post.getText()
-        cell.dateLabel.text = post.getDate()
+//        let post = subgroup.getAllPosts()[indexPath.row]
+//        cell.userLabel.text = post.getUser()
+//        cell.postLabel.text = post.getText()
+//        cell.dateLabel.text = post.getDate()
+        cell.userLabel.text = hardcodeUsers[indexPath.row]
+        cell.postLabel.text = hardcodePosts[indexPath.row]
+        cell.dateLabel.text = "12:34"
+        
     
         return cell
     }
@@ -67,10 +77,11 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250 //height from xib file
+        return 250 //height of the post table cell in the xib file
     }
     
     @IBAction func postButtonPushed(sender: UIButton) {
+        print("user makes a post")
         let userText = userTextfield.text!
         let postText = postTextfield.text!
         let date = NSDate()

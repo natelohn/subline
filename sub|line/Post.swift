@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import RealmSwift
 
 class Post {
     private var user = "" //will be a user object
@@ -20,6 +20,8 @@ class Post {
     //var score:int
     //time of post
     
+    
+    //switch to init 
     
     func setUser(input:String){
         user = input
