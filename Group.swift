@@ -14,7 +14,7 @@ class Group {
     
     dynamic var creator = User()
     dynamic var name = ""
-    dynamic var username = ""
+    dynamic var groupname = ""
     
     
 }
