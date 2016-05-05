@@ -136,7 +136,7 @@
                 <outlet property="upButton" destination="oFH-5I-cFR" id="svw-BB-NGc"/>
                 <outlet property="userLabel" destination="sBZ-JU-VZC" id="lO7-sd-LCw"/>
             </connections>
-            <point key="canvasLocation" x="147" y="222"/>
+            <point key="canvasLocation" x="162" y="221"/>
         </tableViewCell>
     </objects>
 </document>
