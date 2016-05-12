@@ -517,6 +517,13 @@
                                     <segue destination="dlJ-XT-HQm" kind="show" identifier="toSelectUsersVC" id="fyA-jg-27n"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-Ti-vre">
+                                <rect key="frame" x="8" y="33" width="47" height="30"/>
+                                <state key="normal" title="&lt; back"/>
+                                <connections>
+                                    <segue destination="jKq-VO-HJt" kind="show" identifier="toAllSubgroupsVC" id="OL8-xx-B2y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -709,6 +716,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMF-x5-D7c">
+                                                <rect key="frame" x="8" y="25" width="59" height="30"/>
+                                                <state key="normal" title="&lt; cancel"/>
+                                                <connections>
+                                                    <segue destination="9Rr-Lq-Fgn" kind="show" identifier="toSubgroupVC2" id="VTf-5X-zRX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -813,7 +827,7 @@
         <!--PostView-->
         <scene sceneID="t5K-Tb-SuA">
             <objects>
-                <viewController title="PostView" id="gPq-j7-dEL" sceneMemberID="viewController">
+                <viewController title="PostView" id="gPq-j7-dEL" customClass="PostVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0vZ-49-9VB"/>
                         <viewControllerLayoutGuide type="bottom" id="eNN-rj-cVo"/>
@@ -822,7 +836,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3p3-46-uRJ">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3p3-46-uRJ">
                                 <rect key="frame" x="0.0" y="60" width="600" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeW-EN-eWg">
@@ -846,44 +860,61 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sub|line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rv7-sD-bd2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sub|line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rv7-sD-bd2">
                                 <rect key="frame" x="0.0" y="20" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="tdj-rb-MI0"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="post title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-51-UxW">
-                                <rect key="frame" x="0.0" y="100" width="600" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="post title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-51-UxW">
+                                <rect key="frame" x="0.0" y="108" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAB-uG-xc5">
-                                <rect key="frame" x="20" y="136" width="560" height="206"/>
-                                <string key="text">Gastropub locavore hoodie, post-ironic slow-carb authentic viral freegan fixie whatever four loko knausgaard. Disrupt you probably haven't heard of them mlkshk selvage humblebrag. Chia four loko art party cronut literally fanny pack health goth skateboard gastropub mumblecore. Mixtape chartreuse knausgaard portland, food truck cardigan banjo. Tousled venmo truffaut vinyl next level blog. Farm-to-table retro man bun yr pour-over small batch readymade, venmo yuccie deep v locavore tote bag irony fap meditation. Helvetica 8-bit tofu normcore, franzen bitters umami keffiyeh.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Poster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n79-Na-oPa">
+                                <rect key="frame" x="20" y="117" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAB-uG-xc5">
+                                <rect key="frame" x="20" y="156" width="560" height="96"/>
+                                <string key="text">Gastropub locavore hoodie, post-ironic slow-carb authentic viral freegan fixie whatever four loko knausgaard. Disrupt you probably haven't heard</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvw-Fc-Ogl">
-                                <rect key="frame" x="20" y="349" width="240" height="5"/>
+                                <rect key="frame" x="20" y="238" width="240" height="5"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcx-Kz-lAh">
-                                <rect key="frame" x="20" y="562" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="respond..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcx-Kz-lAh">
+                                <rect key="frame" x="20" y="516" width="184" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-fd-foB">
-                                <rect key="frame" x="20" y="362" width="560" height="192"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQJ-GT-MCl">
+                                <rect key="frame" x="212" y="516" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonPushed:" destination="gPq-j7-dEL" eventType="touchUpInside" id="qjX-KZ-9Hn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ic-Lhc">
+                                <rect key="frame" x="20" y="28" width="47" height="30"/>
+                                <state key="normal" title="&lt; back"/>
+                                <connections>
+                                    <segue destination="9Rr-Lq-Fgn" kind="show" identifier="toSubgroupVC" id="cDT-bk-g35"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-fd-foB">
+                                <rect key="frame" x="20" y="260" width="560" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kR6-pW-TCZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kR6-pW-TCZ">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kR6-pW-TCZ" id="2wB-Fd-919">
@@ -892,22 +923,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gPq-j7-dEL" id="bvB-8D-mxq"/>
+                                    <outlet property="delegate" destination="gPq-j7-dEL" id="KLK-4g-yGM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="leading" secondItem="nlm-51-UxW" secondAttribute="leading" id="8bt-Lg-FGy"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="top" secondItem="0vZ-49-9VB" secondAttribute="bottom" id="Haw-lX-q0X"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="centerX" secondItem="b6n-fd-foB" secondAttribute="centerX" id="Krc-nV-ysE"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="leading" secondItem="3p3-46-uRJ" secondAttribute="leading" id="WPh-HI-yNi"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="trailing" secondItem="3p3-46-uRJ" secondAttribute="trailing" id="kRN-5y-VJy"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="trailing" secondItem="nlm-51-UxW" secondAttribute="trailing" id="rD6-yR-uzI"/>
-                            <constraint firstItem="3p3-46-uRJ" firstAttribute="top" secondItem="Rv7-sD-bd2" secondAttribute="bottom" id="tUd-6W-GRt"/>
-                            <constraint firstAttribute="trailing" secondItem="Rv7-sD-bd2" secondAttribute="trailing" id="xYb-tM-CTo"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="centerX" secondItem="bAB-uG-xc5" secondAttribute="centerX" id="xsY-eS-sAq"/>
-                            <constraint firstItem="Rv7-sD-bd2" firstAttribute="leading" secondItem="iXe-Mg-K9G" secondAttribute="leading" id="xu8-gf-Toa"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="commentsTableView" destination="b6n-fd-foB" id="lH9-fA-ced"/>
+                        <outlet property="descriptionLabel" destination="bAB-uG-xc5" id="QV7-fH-BeQ"/>
+                        <outlet property="newCommentTextField" destination="mcx-Kz-lAh" id="3AX-r5-yRn"/>
+                        <outlet property="postCreatorLabel" destination="n79-Na-oPa" id="wAe-g6-4sU"/>
+                        <outlet property="titleLabel" destination="nlm-51-UxW" id="W3e-hh-Lpn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTy-vc-YTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1049,7 +1079,7 @@
                     </view>
                     <connections>
                         <outlet property="postTableView" destination="kle-p7-QFU" id="Rpo-yO-boL"/>
-                        <segue destination="gPq-j7-dEL" kind="show" identifier="toShowPostVC" id="IgA-uA-gkb"/>
+                        <segue destination="gPq-j7-dEL" kind="show" identifier="toPostVC" id="IgA-uA-gkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xO0-Tm-D5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1077,11 +1107,11 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WbF-8Q-Eq7"/>
-        <segue reference="gMb-xF-wor"/>
+        <segue reference="XTY-KC-AM8"/>
+        <segue reference="OL8-xx-B2y"/>
+        <segue reference="WvF-lX-foa"/>
+        <segue reference="fyA-jg-27n"/>
         <segue reference="qL5-gd-4G8"/>
-        <segue reference="D2U-UG-uBX"/>
-        <segue reference="1VG-q4-0mC"/>
-        <segue reference="tDl-c5-zkU"/>
-        <segue reference="iUZ-eI-Djg"/>
+        <segue reference="VTf-5X-zRX"/>
     </inferredMetricsTieBreakers>
 </document>

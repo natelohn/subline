@@ -17,6 +17,8 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var username = ""
     var group = Group()
     var subgroup = Subgroup()
+    var selectedPost = Post()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,29 +27,29 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         print("Subgroup's subgroup = \(subgroup.name)")
         let nib = UINib(nibName: "PostTableCellView", bundle: nil)
         postTableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    //keyboard view logic
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y += keyboardSize.height
-        }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+//    //keyboard view logic
+//    func keyboardWillShow(notification: NSNotification) {
+//        
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.view.frame.origin.y -= keyboardSize.height
+//        }
+//        
+//    }
+//    
+//    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.view.frame.origin.y += keyboardSize.height
+//        }
+//    }
+//    
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,15 +62,22 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         cell.post = post
         cell.username = username
         cell.userLabel!.text = post.creator
-        cell.dateLabel.text! = post.getDate()
+        cell.dateLabel.text! = post.time
         cell.titleLabel.text! = post.title
         cell.descriptionLabel.text! = post.descript
         cell.scoreLabel.text! = String(post.getScore())
+        if post.votedUp(username){
+            cell.upButton.selected = true
+        }
+        if post.votedDown(username){
+            cell.downButton.selected = true
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("Row \(indexPath.row) selected")
+        selectedPost = subgroup.posts[indexPath.row]
+        self.performSegueWithIdentifier("toPostVC", sender: self)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -90,6 +99,15 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             DestinationViewController.subgroup = subgroup
             
         }
+        if segue.identifier == "toPostVC"{
+            let DestinationViewController : PostVC = segue.destinationViewController as! PostVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+            DestinationViewController.subgroup = subgroup
+            DestinationViewController.post = selectedPost
+            
+        }
+        
     }
 
 }

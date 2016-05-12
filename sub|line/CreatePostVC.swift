@@ -61,6 +61,14 @@ class CreatePostVC: UIViewController {
             DestinationViewController.subgroup = subgroup
             
         }
+        if segue.identifier == "toSubgroupVC2"{
+            let DestinationViewController : SubgroupVC = segue.destinationViewController as! SubgroupVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+            DestinationViewController.subgroup = subgroup
+            
+        }
+
         
     }
     

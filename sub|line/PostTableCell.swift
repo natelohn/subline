@@ -27,8 +27,8 @@ class PostTableCell: UITableViewCell {
             post.updateScore(1)
             scoreLabel.text = String(post.getScore())
             post.addVote(username, up: true)
-            upButton.titleLabel?.textColor = UIColor.redColor()
-            downButton.titleLabel?.textColor = UIColor.blackColor()
+            upButton.selected = true
+            downButton.selected = false
         }
     }
     
@@ -38,6 +38,8 @@ class PostTableCell: UITableViewCell {
             post.updateScore(-1)
             scoreLabel.text = String(post.getScore())
             post.addVote(username, up: false)
+            upButton.selected = false
+            downButton.selected = true
         }
     }
     

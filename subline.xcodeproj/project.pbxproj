@@ -14,6 +14,10 @@
 		4643834E1CE28417005F92EB /* SelectUsersBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643834D1CE28417005F92EB /* SelectUsersBrain.swift */; };
 		464383501CE3D53B005F92EB /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643834F1CE3D53B005F92EB /* CreatePostVC.swift */; };
 		464383521CE3D9D7005F92EB /* PostBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464383511CE3D9D7005F92EB /* PostBrain.swift */; };
+		464383581CE44094005F92EB /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464383571CE44094005F92EB /* PostVC.swift */; };
+		4643835A1CE45168005F92EB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464383591CE45168005F92EB /* Comment.swift */; };
+		4643835C1CE457D9005F92EB /* CommentTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4643835B1CE457D9005F92EB /* CommentTableCellView.xib */; };
+		464383601CE45966005F92EB /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643835F1CE45966005F92EB /* CommentTableCell.swift */; };
 		46621BB91CD1FD7F00B402E2 /* PostTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46621BB81CD1FD7F00B402E2 /* PostTableCellView.xib */; };
 		46621BBB1CD2018600B402E2 /* PostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46621BBA1CD2018600B402E2 /* PostTableCell.swift */; };
 		468BAAE91CD1F8D900442702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BAAE81CD1F8D900442702 /* AppDelegate.swift */; };
@@ -63,6 +67,10 @@
 		4643834D1CE28417005F92EB /* SelectUsersBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUsersBrain.swift; sourceTree = "<group>"; };
 		4643834F1CE3D53B005F92EB /* CreatePostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		464383511CE3D9D7005F92EB /* PostBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostBrain.swift; path = ../PostBrain.swift; sourceTree = "<group>"; };
+		464383571CE44094005F92EB /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		464383591CE45168005F92EB /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		4643835B1CE457D9005F92EB /* CommentTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableCellView.xib; sourceTree = "<group>"; };
+		4643835F1CE45966005F92EB /* CommentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableCell.swift; path = ../CommentTableCell.swift; sourceTree = "<group>"; };
 		46621BB81CD1FD7F00B402E2 /* PostTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableCellView.xib; sourceTree = "<group>"; };
 		46621BBA1CD2018600B402E2 /* PostTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableCell.swift; sourceTree = "<group>"; };
 		468BAAE51CD1F8D900442702 /* subline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,8 +162,10 @@
 				46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */,
 				468BAAFB1CD1F9DA00442702 /* SubgroupVC.swift */,
 				4643834F1CE3D53B005F92EB /* CreatePostVC.swift */,
+				464383571CE44094005F92EB /* PostVC.swift */,
 				4643834B1CE1834C005F92EB /* SelectUsersVC.swift */,
 				46621BBA1CD2018600B402E2 /* PostTableCell.swift */,
+				4643835F1CE45966005F92EB /* CommentTableCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -181,6 +191,7 @@
 				469E50AF1CD9E61900ABDA8B /* Group.swift */,
 				460748421CD2096900245E7F /* Subgroup.swift */,
 				460748441CD209A900245E7F /* Post.swift */,
+				464383591CE45168005F92EB /* Comment.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 				468BAAF11CD1F8D900442702 /* LaunchScreen.storyboard */,
 				468BAAEC1CD1F8D900442702 /* Main.storyboard */,
 				46621BB81CD1FD7F00B402E2 /* PostTableCellView.xib */,
+				4643835B1CE457D9005F92EB /* CommentTableCellView.xib */,
 			);
 			name = "UI Builder Views";
 			sourceTree = "<group>";
@@ -259,6 +271,7 @@
 				460748411CD208D500245E7F /* README in Resources */,
 				468BAAF31CD1F8D900442702 /* LaunchScreen.storyboard in Resources */,
 				468BAAF01CD1F8D900442702 /* Assets.xcassets in Resources */,
+				4643835C1CE457D9005F92EB /* CommentTableCellView.xib in Resources */,
 				468BAAEE1CD1F8D900442702 /* Main.storyboard in Resources */,
 				46621BB91CD1FD7F00B402E2 /* PostTableCellView.xib in Resources */,
 			);
@@ -297,6 +310,7 @@
 				469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */,
 				464383521CE3D9D7005F92EB /* PostBrain.swift in Sources */,
 				464383501CE3D53B005F92EB /* CreatePostVC.swift in Sources */,
+				464383581CE44094005F92EB /* PostVC.swift in Sources */,
 				469E50B21CDA98A000ABDA8B /* DataBase.swift in Sources */,
 				469E50AE1CD9E60000ABDA8B /* GroupBrain.swift in Sources */,
 				46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */,
@@ -304,7 +318,9 @@
 				46F5C9751CD96E0E00C1554C /* User.swift in Sources */,
 				469E50A21CD9CA5600ABDA8B /* LoginBrain.swift in Sources */,
 				4643834E1CE28417005F92EB /* SelectUsersBrain.swift in Sources */,
+				464383601CE45966005F92EB /* CommentTableCell.swift in Sources */,
 				46621BBB1CD2018600B402E2 /* PostTableCell.swift in Sources */,
+				4643835A1CE45168005F92EB /* Comment.swift in Sources */,
 				4643834C1CE1834C005F92EB /* SelectUsersVC.swift in Sources */,
 				468BAAFC1CD1F9DA00442702 /* SubgroupVC.swift in Sources */,
 				469E50AC1CD9E41100ABDA8B /* CreateGroupVC.swift in Sources */,

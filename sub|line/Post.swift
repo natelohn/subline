@@ -13,23 +13,18 @@ class Post : Object{
     dynamic var creator = ""
     dynamic var title = ""
     dynamic var descript = ""
+    dynamic var time = ""
     private dynamic var score = 0
-    private dynamic var postHour = ""
-    private dynamic var postMinute = ""
     let upvotes = List<User>()
     let downvotes = List<User>()
-    //array of votes
-    //var score:int
+    let comments = List<Comment>()
     //time of post
     
     func createPost(creator:String, title:String, description:String, date:NSDate){
         self.creator = creator
         self.title = title
         self.descript = description
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Hour, .Minute], fromDate: date)
-        postHour = String(components.hour)
-        postMinute = String(components.minute)
+        self.time = makeDateString(date)
     }
     
     
@@ -43,8 +38,10 @@ class Post : Object{
         return score
     }
     
-    func getDate() -> String {
-        return  postHour + ":" + postMinute
+    func makeDateString(date:NSDate) -> String {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Hour, .Minute], fromDate: date)
+        return "at " + String(components.hour) + ":" + String(components.minute)
     }
     
     func addVote(username:String, up:Bool){
@@ -82,6 +79,12 @@ class Post : Object{
             }
         }
         return false
+    }
+    
+    func addComment(newComment:Comment){
+        try! Realm().write{
+            comments.append(newComment)
+        }
     }
     
     
