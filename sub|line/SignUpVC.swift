@@ -24,13 +24,13 @@ class SignUpVC: UIViewController {
         let password = passwordTextField.text!
         if brain.signUp(username, password: password){
             self.username = username
-            print("user set")
+//            print("user set")
             self.performSegueWithIdentifier("toAllGroupsVC", sender: sender)
         } else {
             let alert = UIAlertController(title: "Failed Sign Up", message: "Please Pick a New Username", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Awww... I liked that one.", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
-            print("failed sign up")
+//            print("failed sign up")
         }
     }
     
@@ -39,10 +39,8 @@ class SignUpVC: UIViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "toAllGroupsVC" {
             if  username == "" {
-                print("no segue")
                 return false
             } else {
-                print("segue")
                 return true
             }
         }
@@ -50,11 +48,9 @@ class SignUpVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if username != "" {
-            if segue.identifier == "toAllGroupsVC"{
-                let DestinationViewController : AllGroupsVC = segue.destinationViewController as! AllGroupsVC
-                DestinationViewController.username = username
-            }
+        if segue.identifier == "toAllGroupsVC"{
+            let DestinationViewController : AllGroupsVC = segue.destinationViewController as! AllGroupsVC
+            DestinationViewController.username = username
         }
     }
     

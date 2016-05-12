@@ -17,10 +17,11 @@ class Group: Object {
     let subgroups = List<Subgroup>()
     //array of subgroups
     
-    func makeNewGroup(creator:String, name:String, members:List<User>){
+    
+    
+    func makeNewGroup(creator:String, name:String){
         self.creator = creator
         self.name = name
-        self.members.appendContentsOf(members) //members may need to be it's own object extending user
     }
     
     
@@ -28,7 +29,9 @@ class Group: Object {
         name = newName
     }
     
-    func addMember(newMember:User){
+    func addMember(newMemberUsername:String){
+        let newMember = DataBase().getUserFromDB(newMemberUsername)
+        newMember.addGroup(self)
         try! Realm().write {
             members.append(newMember)
         }

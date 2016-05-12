@@ -10,13 +10,17 @@
 		460748411CD208D500245E7F /* README in Resources */ = {isa = PBXBuildFile; fileRef = 460748401CD208D500245E7F /* README */; };
 		460748431CD2096900245E7F /* Subgroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460748421CD2096900245E7F /* Subgroup.swift */; };
 		460748451CD209A900245E7F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460748441CD209A900245E7F /* Post.swift */; };
+		4643834C1CE1834C005F92EB /* SelectUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643834B1CE1834C005F92EB /* SelectUsersVC.swift */; };
+		4643834E1CE28417005F92EB /* SelectUsersBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643834D1CE28417005F92EB /* SelectUsersBrain.swift */; };
+		464383501CE3D53B005F92EB /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643834F1CE3D53B005F92EB /* CreatePostVC.swift */; };
+		464383521CE3D9D7005F92EB /* PostBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464383511CE3D9D7005F92EB /* PostBrain.swift */; };
 		46621BB91CD1FD7F00B402E2 /* PostTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46621BB81CD1FD7F00B402E2 /* PostTableCellView.xib */; };
 		46621BBB1CD2018600B402E2 /* PostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46621BBA1CD2018600B402E2 /* PostTableCell.swift */; };
 		468BAAE91CD1F8D900442702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BAAE81CD1F8D900442702 /* AppDelegate.swift */; };
 		468BAAEE1CD1F8D900442702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468BAAEC1CD1F8D900442702 /* Main.storyboard */; };
 		468BAAF01CD1F8D900442702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468BAAEF1CD1F8D900442702 /* Assets.xcassets */; };
 		468BAAF31CD1F8D900442702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468BAAF11CD1F8D900442702 /* LaunchScreen.storyboard */; };
-		468BAAFC1CD1F9DA00442702 /* SubGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */; };
+		468BAAFC1CD1F9DA00442702 /* SubgroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BAAFB1CD1F9DA00442702 /* SubgroupVC.swift */; };
 		469E50A21CD9CA5600ABDA8B /* LoginBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */; };
 		469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50A31CD9CAE000ABDA8B /* SignUpBrain.swift */; };
 		469E50AC1CD9E41100ABDA8B /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E50AB1CD9E41100ABDA8B /* CreateGroupVC.swift */; };
@@ -26,6 +30,7 @@
 		46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */; };
 		46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */; };
 		46EDE3F61CDB66E700AFBD4B /* AllGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */; };
+		46EDE3F81CDB80A100AFBD4B /* AllSubgroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDE3F71CDB80A100AFBD4B /* AllSubgroupsVC.swift */; };
 		46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9701CD94D9000C1554C /* LoginVC.swift */; };
 		46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9721CD94DD800C1554C /* SignUpVC.swift */; };
 		46F5C9751CD96E0E00C1554C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5C9741CD96E0E00C1554C /* User.swift */; };
@@ -54,6 +59,10 @@
 		460748401CD208D500245E7F /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		460748421CD2096900245E7F /* Subgroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subgroup.swift; sourceTree = "<group>"; };
 		460748441CD209A900245E7F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4643834B1CE1834C005F92EB /* SelectUsersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUsersVC.swift; sourceTree = "<group>"; };
+		4643834D1CE28417005F92EB /* SelectUsersBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUsersBrain.swift; sourceTree = "<group>"; };
+		4643834F1CE3D53B005F92EB /* CreatePostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		464383511CE3D9D7005F92EB /* PostBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostBrain.swift; path = ../PostBrain.swift; sourceTree = "<group>"; };
 		46621BB81CD1FD7F00B402E2 /* PostTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableCellView.xib; sourceTree = "<group>"; };
 		46621BBA1CD2018600B402E2 /* PostTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableCell.swift; sourceTree = "<group>"; };
 		468BAAE51CD1F8D900442702 /* subline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +71,7 @@
 		468BAAEF1CD1F8D900442702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		468BAAF21CD1F8D900442702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		468BAAF41CD1F8D900442702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubGroupVC.swift; sourceTree = "<group>"; };
+		468BAAFB1CD1F9DA00442702 /* SubgroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubgroupVC.swift; sourceTree = "<group>"; };
 		469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBrain.swift; sourceTree = "<group>"; };
 		469E50A31CD9CAE000ABDA8B /* SignUpBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBrain.swift; sourceTree = "<group>"; };
 		469E50AB1CD9E41100ABDA8B /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGroupVC.swift; path = ../CreateGroupVC.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 		46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubgroupVC.swift; sourceTree = "<group>"; };
 		46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubgroupBrain.swift; sourceTree = "<group>"; };
 		46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsVC.swift; path = ../AllGroupsVC.swift; sourceTree = "<group>"; };
+		46EDE3F71CDB80A100AFBD4B /* AllSubgroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllSubgroupsVC.swift; path = ../AllSubgroupsVC.swift; sourceTree = "<group>"; };
 		46F5C9701CD94D9000C1554C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = ../LoginVC.swift; sourceTree = "<group>"; };
 		46F5C9721CD94DD800C1554C /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		46F5C9741CD96E0E00C1554C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,8 +150,11 @@
 				46F5C9721CD94DD800C1554C /* SignUpVC.swift */,
 				46EDE3F51CDB66E700AFBD4B /* AllGroupsVC.swift */,
 				469E50AB1CD9E41100ABDA8B /* CreateGroupVC.swift */,
+				46EDE3F71CDB80A100AFBD4B /* AllSubgroupsVC.swift */,
 				46EDE3EF1CDB313E00AFBD4B /* CreateSubgroupVC.swift */,
-				468BAAFB1CD1F9DA00442702 /* SubGroupVC.swift */,
+				468BAAFB1CD1F9DA00442702 /* SubgroupVC.swift */,
+				4643834F1CE3D53B005F92EB /* CreatePostVC.swift */,
+				4643834B1CE1834C005F92EB /* SelectUsersVC.swift */,
 				46621BBA1CD2018600B402E2 /* PostTableCell.swift */,
 			);
 			name = "View Controllers";
@@ -150,6 +163,8 @@
 		469E50A61CD9D5C900ABDA8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				464383511CE3D9D7005F92EB /* PostBrain.swift */,
+				4643834D1CE28417005F92EB /* SelectUsersBrain.swift */,
 				46EDE3F11CDB3A3900AFBD4B /* SubgroupBrain.swift */,
 				469E50AD1CD9E60000ABDA8B /* GroupBrain.swift */,
 				469E50A11CD9CA5600ABDA8B /* LoginBrain.swift */,
@@ -275,18 +290,23 @@
 				46F5C9731CD94DD800C1554C /* SignUpVC.swift in Sources */,
 				46EDE3F21CDB3A3900AFBD4B /* SubgroupBrain.swift in Sources */,
 				460748431CD2096900245E7F /* Subgroup.swift in Sources */,
+				46EDE3F81CDB80A100AFBD4B /* AllSubgroupsVC.swift in Sources */,
 				46EDE3F61CDB66E700AFBD4B /* AllGroupsVC.swift in Sources */,
 				46EDE3F01CDB313E00AFBD4B /* CreateSubgroupVC.swift in Sources */,
 				468BAAE91CD1F8D900442702 /* AppDelegate.swift in Sources */,
 				469E50A41CD9CAE000ABDA8B /* SignUpBrain.swift in Sources */,
+				464383521CE3D9D7005F92EB /* PostBrain.swift in Sources */,
+				464383501CE3D53B005F92EB /* CreatePostVC.swift in Sources */,
 				469E50B21CDA98A000ABDA8B /* DataBase.swift in Sources */,
 				469E50AE1CD9E60000ABDA8B /* GroupBrain.swift in Sources */,
 				46F5C9711CD94D9000C1554C /* LoginVC.swift in Sources */,
 				469E50B01CD9E61900ABDA8B /* Group.swift in Sources */,
 				46F5C9751CD96E0E00C1554C /* User.swift in Sources */,
 				469E50A21CD9CA5600ABDA8B /* LoginBrain.swift in Sources */,
+				4643834E1CE28417005F92EB /* SelectUsersBrain.swift in Sources */,
 				46621BBB1CD2018600B402E2 /* PostTableCell.swift in Sources */,
-				468BAAFC1CD1F9DA00442702 /* SubGroupVC.swift in Sources */,
+				4643834C1CE1834C005F92EB /* SelectUsersVC.swift in Sources */,
+				468BAAFC1CD1F9DA00442702 /* SubgroupVC.swift in Sources */,
 				469E50AC1CD9E41100ABDA8B /* CreateGroupVC.swift in Sources */,
 				460748451CD209A900245E7F /* Post.swift in Sources */,
 			);

@@ -16,13 +16,13 @@ class AllGroupsVC: UIViewController {
     let db = DataBase()
     var username = ""
     var user = User()
+    var selectedGroup = Group()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("user: \(username)")
+        print("All Groups VC's user = \(username)")
         user = db.getUserFromDB(username)
         groupTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        user.printAllGroups()
     }
     
     
@@ -39,8 +39,9 @@ class AllGroupsVC: UIViewController {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Row \(indexPath.row) selected")
-        self.performSegueWithIdentifier("toCreateGroupVC", sender: self) //not sure if self should be something else
+//        print("Row \(indexPath.row) selected")
+        selectedGroup = user.groups[indexPath.row]
+        self.performSegueWithIdentifier("toAllSubgroupsVC", sender: self) //not sure if self should be something else
         
     }
     
@@ -54,6 +55,13 @@ class AllGroupsVC: UIViewController {
         if segue.identifier == "toCreateGroupVC"{
             let DestinationViewController : CreateGroupVC = segue.destinationViewController as! CreateGroupVC
             DestinationViewController.username = username
+        }
+        
+        if segue.identifier == "toAllSubgroupsVC"{
+            let DestinationViewController : AllSubgroupsVC = segue.destinationViewController as! AllSubgroupsVC
+            DestinationViewController.username = username
+            DestinationViewController.group = selectedGroup
+            
         }
     }
     

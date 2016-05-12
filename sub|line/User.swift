@@ -80,7 +80,7 @@ class User: Object {
                 print("             Subgroup:\(subgroup.name)")
                 print("             Creator:\(subgroup.creator)")
                 for submember in subgroup.members {
-                    print("             Member:\(submember.username)")
+                    print("                 Member:\(submember.username)")
                 }
             }
 

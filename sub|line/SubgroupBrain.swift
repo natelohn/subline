@@ -13,27 +13,14 @@ class SubgroupBrain {
     
     let db = DataBase()
     
-    func createSubgroup(creatorUsername:String, name:String, members:List<User>) -> Subgroup {
+    func createSubgroup(group:Group, creatorUsername:String, name:String, description:String, members:Set<String>){
         let newSubgroup = Subgroup()
-        let creator = db.getUserFromDB(creatorUsername)
-        newSubgroup.makeNewSubgroup(creatorUsername, name: name, members: members)
-        newSubgroup.addMember(creator)
-        creator.addSubgroup(newSubgroup)
-        return newSubgroup
-    }
-    
-    func addMemebersToSubgroup(memberUsernames:Set<String>, subgroup:Subgroup){
-        for username in memberUsernames {
-            if db.isUser(username){
-                let user = db.getUserFromDB(username)
-                subgroup.addMember(user)
-            }
+        newSubgroup.makeNewSubgroup(creatorUsername, name: name, descript:description)
+        newSubgroup.addMember(creatorUsername)
+        for member in members {
+            newSubgroup.addMember(member)
         }
-        db.printAllUsers()
+        group.addSubgroup(newSubgroup)
     }
-    
-    
-    
-    
     
 }

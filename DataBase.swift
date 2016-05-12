@@ -30,6 +30,20 @@ class DataBase {
         return Array(realm.objects(User))
     }
     
+    func getAllOtherUsers(myUsername:String) -> [User]{
+        let users = Array(realm.objects(User))
+        var others = [User]()
+        for user in users {
+            if user.username != myUsername {
+                others.append(user)
+            }
+        }
+        return others
+        
+    }
+    
+    
+    
     func printAllUsers(){
         print("-----all users-----")
         let users = realm.objects(User)
@@ -41,6 +55,7 @@ class DataBase {
     func clearDB(){
         try! realm.write {
             realm.deleteAll()
+            print("DB Cleared")
         }
     }
 }

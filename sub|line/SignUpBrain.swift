@@ -23,12 +23,12 @@ class SignUpBrain {
                 let newUser = User()
                 newUser.makeNewUser(username, password: password)
                 try! realm.write() {
-                    print("new user signed up!")
+//                    print("new user signed up!")
                     realm.add(newUser)
                 }
                 return true
             } else {
-                print("username exists")
+//                print("username exists")
                 return false
             }
         }

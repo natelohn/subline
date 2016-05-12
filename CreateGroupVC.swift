@@ -25,50 +25,51 @@ class CreateGroupVC: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        self.allUsersTableView.allowsMultipleSelection = true
+        print("Create New Group's user = \(username)")
+        
         user = db.getUserFromDB(username)
-        print("user = \(user.username)")
+        
+        
+//        print("user = \(user.username)")
     }
-    
-    @IBAction func addGroupButtonPushed(sender: UIButton) {
-        let groupName = groupNameTextField.text!
-        group = brain.createGroup(user.username, name: groupName, members:List<User>())
-        user.printAllGroups()
-    }
-    
-    
-//    @IBAction func addMemberPushed(sender: UIButton) {
-//        let memberName = memberNameTextField.text!
-//        members.insert(memberName)
-//        print("\(memberName) added")
-//    }
     
     
     @IBAction func createGroupPushed(sender: UIButton) {
-        brain.addMemebersToGroup(members, group: group)
+        let groupName = groupNameTextField.text!
+        if groupName != "" {
+            print("created group!")
+            brain.createGroup(user.username, name: groupName, members:members)
+        } else {
+            let alert = UIAlertController(title: "No Group Name", message: "Please Add a Group Name", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Fine!!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
-    
-    
     
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return db.getAllUsers().count - 1
+        return Array(members).count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell? {
-        var skipSelf = 0
-        if db.getAllUsers()[indexPath.row].username == username {
-            skipSelf = 1
-        }
         let cell = allUsersTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.text = db.getAllUsers()[indexPath.row + skipSelf].username
+        cell.textLabel!.text = Array(members)[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Row \(indexPath.row) selected")
-//        self.performSegueWithIdentifier("toCreateGroupsVC", sender: self) //not sure if self should be something else
-        
+        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
+        members.insert(memberName)
+        print("\(memberName) added")
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
+        members.remove(memberName)
+        print("\(memberName) removed")
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -79,7 +80,7 @@ class CreateGroupVC: UIViewController {
     
     //segue logic
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "toCreateSubgroupVC" {
+        if identifier == "toAllGroupsVC" {
             if  username == "" {
                 return false
             } else {
@@ -90,11 +91,15 @@ class CreateGroupVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if username != "" {
-            if segue.identifier == "toCreateSubgroupVC"{
-                let DestinationViewController : CreateGroupVC = segue.destinationViewController as! CreateGroupVC
-                DestinationViewController.username = username
-            }
+        if segue.identifier == "toAllGroupsVC"{
+            let DestinationViewController : AllGroupsVC = segue.destinationViewController as! AllGroupsVC
+            DestinationViewController.username = username
+        }
+        
+        if segue.identifier == "toSelectUsersVC"{
+            let DestinationViewController : SelectUsersVC = segue.destinationViewController as! SelectUsersVC
+             DestinationViewController.username = username
+            DestinationViewController.usersToDisplay = db.getAllOtherUsers(username)
         }
     }
     

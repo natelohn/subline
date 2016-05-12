@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gRW-Te-D3c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gRW-Te-D3c">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -109,7 +109,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Gk-Gc-QGy">
-                                        <rect key="frame" x="0.0" y="154" width="600" height="446"/>
+                                        <rect key="frame" x="0.0" y="216" width="600" height="335"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="a2j-BZ-1dE">
@@ -126,6 +126,13 @@
                                             <outlet property="delegate" destination="TTa-kF-Wwq" id="Jhx-5F-xBv"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKs-rZ-ACm">
+                                        <rect key="frame" x="14" y="24" width="47" height="30"/>
+                                        <state key="normal" title="&lt; back"/>
+                                        <connections>
+                                            <segue destination="QVw-Yr-j8m" kind="show" identifier="toAllGroupsVC" id="gMb-xF-wor"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5L-HI-uNx">
                                         <rect key="frame" x="0.0" y="76" width="600" height="70"/>
                                         <subviews>
@@ -134,6 +141,7 @@
                                                 <state key="normal" title="Create Group"/>
                                                 <connections>
                                                     <action selector="createGroupPushed:" destination="TTa-kF-Wwq" eventType="touchUpInside" id="LfG-2T-Ccg"/>
+                                                    <segue destination="QVw-Yr-j8m" kind="show" identifier="toAllGroupsVC" id="H3C-P0-2La"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="group name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8Y-Yh-vhL">
@@ -144,6 +152,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BN-zs-Oum">
+                                        <rect key="frame" x="29" y="559" width="96" height="30"/>
+                                        <state key="normal" title="Add Members"/>
+                                        <connections>
+                                            <segue destination="dlJ-XT-HQm" kind="show" identifier="toSelectUsersVC" id="D2U-UG-uBX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Members:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69G-J4-1X0">
+                                        <rect key="frame" x="14" y="187" width="145" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -157,62 +178,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPq-Jb-jfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1971" y="1388"/>
+            <point key="canvasLocation" x="-1971" y="1428"/>
         </scene>
-        <!--Create SubgroupVC-->
-        <scene sceneID="l2u-OA-I2l">
+        <!--Select UsersVC-->
+        <scene sceneID="01h-B5-XBR">
             <objects>
-                <viewController id="oqf-th-8bA" customClass="CreateSubgroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dlJ-XT-HQm" customClass="SelectUsersVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ECT-5i-16E"/>
-                        <viewControllerLayoutGuide type="bottom" id="7L5-Xv-XIh"/>
+                        <viewControllerLayoutGuide type="top" id="hBO-Gj-Nsu"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJz-Gt-8RE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8cb-jc-zJR">
+                    <view key="view" contentMode="scaleToFill" id="S09-dp-4c8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="subgroup" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdk-6c-QjK">
-                                <rect key="frame" x="81" y="76" width="191" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="member" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Za-em-tZ9">
-                                <rect key="frame" x="81" y="181" width="191" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDh-f4-fPU">
-                                <rect key="frame" x="129" y="114" width="96" height="30"/>
-                                <state key="normal" title="add subgroup"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2gq-QJ-8gG">
+                                <rect key="frame" x="20" y="56" width="310" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="RgZ-pb-M75">
+                                        <rect key="frame" x="0.0" y="28" width="310" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RgZ-pb-M75" id="t5J-PS-JT8">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="addSubgroupPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="Vy0-dr-Pba"/>
+                                    <outlet property="dataSource" destination="dlJ-XT-HQm" id="Tgr-TI-kZT"/>
+                                    <outlet property="delegate" destination="dlJ-XT-HQm" id="kZV-EC-CZ7"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWC-am-29f" userLabel="&lt; Add to Group">
+                                <rect key="frame" x="20" y="20" width="56" height="30"/>
+                                <state key="normal" title="&lt; Add"/>
+                                <connections>
+                                    <action selector="addPushed:" destination="dlJ-XT-HQm" eventType="touchUpInside" id="Xtm-hR-j8R"/>
+                                    <segue destination="TTa-kF-Wwq" kind="show" identifier="toCreateGroupVC" id="qL5-gd-4G8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-yc-Huu">
-                                <rect key="frame" x="118" y="285" width="117" height="30"/>
-                                <state key="normal" title="Create Subgroup"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee3-ZN-ZWx" userLabel="&lt; Add to Subgroup">
+                                <rect key="frame" x="20" y="20" width="56" height="30"/>
+                                <state key="normal" title="&lt; Add"/>
                                 <connections>
-                                    <action selector="createSubgroupPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="LqT-my-vlH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH1-D3-ctC">
-                                <rect key="frame" x="133" y="219" width="87" height="30"/>
-                                <state key="normal" title="add member"/>
-                                <connections>
-                                    <action selector="addMemberPushed:" destination="oqf-th-8bA" eventType="touchUpInside" id="26c-EK-0hP"/>
+                                    <action selector="addPushed:" destination="dlJ-XT-HQm" eventType="touchUpInside" id="nF8-8b-38O"/>
+                                    <segue destination="Sqk-AD-3M7" kind="show" identifier="toCreateSubgroupVC" id="1VG-q4-0mC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="memberTextField" destination="3Za-em-tZ9" id="E1J-X3-fST"/>
-                        <outlet property="subgroupTextField" destination="zdk-6c-QjK" id="joz-ne-cLb"/>
+                        <outlet property="addToGroupButton" destination="KWC-am-29f" id="tSf-nW-GH9"/>
+                        <outlet property="addToSubgroupButton" destination="ee3-ZN-ZWx" id="Suk-Ns-JzL"/>
+                        <outlet property="usersTableView" destination="2gq-QJ-8gG" id="XyO-zY-phy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KmB-ap-ahQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yLr-St-gGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1152" y="2144"/>
+            <point key="canvasLocation" x="-1097" y="1294"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="6y0-He-efq">
@@ -226,15 +251,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25A-M2-uqf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nate" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25A-M2-uqf">
                                 <rect key="frame" x="19" y="116" width="222" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oj1-kH-4Ii">
-                                <rect key="frame" x="19" y="163" width="222" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYh-Hr-YWr">
                                 <rect key="frame" x="0.0" y="251" width="600" height="30"/>
@@ -289,6 +309,11 @@
                                 <rect key="frame" x="19" y="163" width="240" height="5"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oj1-kH-4Ii">
+                                <rect key="frame" x="19" y="163" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -342,7 +367,7 @@
                                             <constraint firstAttribute="height" constant="108" id="Z7S-iV-Iam"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                        <state key="normal" title="∆∆∆">
+                                        <state key="normal" title="GROUP">
                                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
@@ -351,6 +376,13 @@
                                         <state key="normal" title="New Group"/>
                                         <connections>
                                             <segue destination="TTa-kF-Wwq" kind="show" identifier="toCreateGroupVC" id="4Bk-iN-oAv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-OI-Lwu">
+                                        <rect key="frame" x="9" y="30" width="44" height="30"/>
+                                        <state key="normal" title="logout"/>
+                                        <connections>
+                                            <segue destination="gRW-Te-D3c" kind="show" id="WbF-8Q-Eq7"/>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nlq-h4-tVY">
@@ -397,6 +429,7 @@
                     </view>
                     <connections>
                         <outlet property="groupTableView" destination="nlq-h4-tVY" id="BhQ-3W-OyZ"/>
+                        <segue destination="jKq-VO-HJt" kind="show" identifier="toAllSubgroupsVC" id="xqk-Md-S7f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVB-MT-NvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -406,7 +439,7 @@
         <!--newSubGroup-->
         <scene sceneID="GTb-od-IfT">
             <objects>
-                <viewController id="Sqk-AD-3M7" userLabel="newSubGroup" sceneMemberID="viewController">
+                <viewController title="CreateSubgroupVC" id="Sqk-AD-3M7" userLabel="newSubGroup" customClass="CreateSubgroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W6V-ej-20K"/>
                         <viewControllerLayoutGuide type="bottom" id="qrz-C6-PrT"/>
@@ -415,7 +448,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqx-2k-WKR">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqx-2k-WKR">
                                 <rect key="frame" x="0.0" y="68" width="600" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia6-dO-9M4">
@@ -430,34 +463,23 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sub|line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-bU-E5y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sub|line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-bU-E5y">
                                 <rect key="frame" x="0.0" y="28" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="6j3-Eo-Jdu"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="new subgroup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzn-QL-Ech">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="new subgroup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzn-QL-Ech">
                                 <rect key="frame" x="0.0" y="107" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="yxh-tK-zIv"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-dd-pYA">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-dd-pYA">
                                 <rect key="frame" x="0.0" y="154" width="600" height="246"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-T7-Dhu">
-                                        <rect key="frame" x="20" y="20" width="392" height="47"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lha-pr-oa0">
                                         <rect key="frame" x="20" y="81" width="560" height="145"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -471,45 +493,46 @@
                                         <rect key="frame" x="20" y="30" width="240" height="5"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-T7-Dhu">
+                                        <rect key="frame" x="20" y="21" width="392" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-MD-G41">
+                                        <rect key="frame" x="277" y="29" width="46" height="30"/>
+                                        <state key="normal" title="Create"/>
+                                        <connections>
+                                            <action selector="createSubgroupPushed:" destination="Sqk-AD-3M7" eventType="touchUpInside" id="X76-et-pLI"/>
+                                            <segue destination="jKq-VO-HJt" kind="show" identifier="toAllSubgroupsVC" id="UL7-LF-I8s"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-45-DZY">
-                                <rect key="frame" x="0.0" y="388" width="600" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-45-DZY">
+                                <rect key="frame" x="0.0" y="398" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="add users"/>
+                                <connections>
+                                    <segue destination="dlJ-XT-HQm" kind="show" identifier="toSelectUsersVC" id="fyA-jg-27n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="KbR-dd-pYA" firstAttribute="trailing" secondItem="5dJ-45-DZY" secondAttribute="trailing" id="0Ty-0E-4eG"/>
-                            <constraint firstItem="vzn-QL-Ech" firstAttribute="trailing" secondItem="KbR-dd-pYA" secondAttribute="trailing" id="6j6-9B-aBZ"/>
-                            <constraint firstItem="qrz-C6-PrT" firstAttribute="top" secondItem="5dJ-45-DZY" secondAttribute="bottom" constant="182" id="A4U-bb-Fxe"/>
-                            <constraint firstItem="iJ4-bU-E5y" firstAttribute="top" secondItem="W6V-ej-20K" secondAttribute="bottom" constant="8" symbolic="YES" id="Dhi-ft-G1t"/>
-                            <constraint firstItem="vzn-QL-Ech" firstAttribute="leading" secondItem="KbR-dd-pYA" secondAttribute="leading" id="EHQ-H9-kpi"/>
-                            <constraint firstItem="iJ4-bU-E5y" firstAttribute="leading" secondItem="Kqx-2k-WKR" secondAttribute="leading" id="Hdd-U4-YJw"/>
-                            <constraint firstItem="vzn-QL-Ech" firstAttribute="top" secondItem="iJ4-bU-E5y" secondAttribute="bottom" constant="39" id="J32-LX-Wg8"/>
-                            <constraint firstItem="Kqx-2k-WKR" firstAttribute="leading" secondItem="vzn-QL-Ech" secondAttribute="leading" id="JxU-Qq-x9W"/>
-                            <constraint firstItem="KbR-dd-pYA" firstAttribute="top" secondItem="Kqx-2k-WKR" secondAttribute="bottom" constant="46" id="Nyh-fx-zoa"/>
-                            <constraint firstItem="KbR-dd-pYA" firstAttribute="top" secondItem="vzn-QL-Ech" secondAttribute="bottom" constant="7" id="PEo-FB-gXZ"/>
-                            <constraint firstAttribute="trailing" secondItem="iJ4-bU-E5y" secondAttribute="trailing" id="QnQ-tz-lbk"/>
-                            <constraint firstItem="iJ4-bU-E5y" firstAttribute="leading" secondItem="Qs9-u5-gGT" secondAttribute="leading" id="VjQ-hD-C6e"/>
-                            <constraint firstItem="Kqx-2k-WKR" firstAttribute="trailing" secondItem="vzn-QL-Ech" secondAttribute="trailing" id="bfC-qQ-fAX"/>
-                            <constraint firstItem="iJ4-bU-E5y" firstAttribute="trailing" secondItem="Kqx-2k-WKR" secondAttribute="trailing" id="bnN-dk-kGT"/>
-                            <constraint firstItem="KbR-dd-pYA" firstAttribute="leading" secondItem="5dJ-45-DZY" secondAttribute="leading" id="hbk-qS-0bF"/>
-                            <constraint firstItem="Kqx-2k-WKR" firstAttribute="top" secondItem="iJ4-bU-E5y" secondAttribute="bottom" id="qte-o6-CzA"/>
-                            <constraint firstItem="qrz-C6-PrT" firstAttribute="top" secondItem="KbR-dd-pYA" secondAttribute="bottom" constant="200" id="zLT-W6-Dxd"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="Lha-pr-oa0" id="xuN-FZ-Q1f"/>
+                        <outlet property="subgroupTextField" destination="Ne2-T7-Dhu" id="foX-DJ-L95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ac2-0e-xgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1152" y="2899"/>
+            <point key="canvasLocation" x="-1097" y="2187"/>
         </scene>
         <!--subgroupview-->
         <scene sceneID="UcD-ZK-egS">
             <objects>
-                <viewController id="jKq-VO-HJt" userLabel="subgroupview" sceneMemberID="viewController">
+                <viewController title="AllSubgroupsVC" id="jKq-VO-HJt" userLabel="subgroupview" customClass="AllSubgroupsVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X7g-0M-za9"/>
                         <viewControllerLayoutGuide type="bottom" id="NYF-SV-auj"/>
@@ -550,9 +573,23 @@
                                             <constraint firstAttribute="height" constant="108" id="Mmh-1n-eWj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                        <state key="normal" title="Staff">
+                                        <state key="normal" title="Subgroup">
                                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sop-Jt-wPF">
+                                        <rect key="frame" x="528" y="25" width="64" height="30"/>
+                                        <state key="normal" title="New Line"/>
+                                        <connections>
+                                            <segue destination="Sqk-AD-3M7" kind="show" identifier="toCreateSubgroupVC" id="WvF-lX-foa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJf-vF-30W">
+                                        <rect key="frame" x="20" y="25" width="47" height="30"/>
+                                        <state key="normal" title="&lt; back"/>
+                                        <connections>
+                                            <segue destination="QVw-Yr-j8m" kind="show" identifier="toAllGroupsVC" id="XTY-KC-AM8"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bdf-gD-xYF">
                                         <rect key="frame" x="0.0" y="253" width="600" height="347"/>
@@ -565,13 +602,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="9Rr-Lq-Fgn" kind="show" identifier="toSubgroupVC" id="abM-tp-vwa"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="jKq-VO-HJt" id="PVK-YW-oTb"/>
+                                            <outlet property="delegate" destination="jKq-VO-HJt" id="byX-ap-oym"/>
+                                        </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sop-Jt-wPF">
-                                        <rect key="frame" x="528" y="25" width="64" height="30"/>
-                                        <state key="normal" title="New Line"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -598,15 +638,18 @@
                             <constraint firstAttribute="trailing" secondItem="Uei-t2-zBv" secondAttribute="trailing" id="obO-Yw-5b6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="subgroupTableView" destination="bdf-gD-xYF" id="bvb-id-2Is"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDV-Dh-xIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1971" y="2301"/>
+            <point key="canvasLocation" x="-1971" y="2246"/>
         </scene>
         <!--NewPost-->
         <scene sceneID="3Pk-tl-JPP">
             <objects>
-                <viewController title="NewPost" id="sm1-Qr-wi6" sceneMemberID="viewController">
+                <viewController title="NewPost" id="sm1-Qr-wi6" customClass="CreatePostVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a4u-wr-43z"/>
                         <viewControllerLayoutGuide type="bottom" id="e6o-F9-0eC"/>
@@ -690,18 +733,14 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="post"/>
+                                        <connections>
+                                            <action selector="postButtonPushed:" destination="sm1-Qr-wi6" eventType="touchUpInside" id="tv3-rC-2sN"/>
+                                            <segue destination="9Rr-Lq-Fgn" kind="show" identifier="toSubgroupVC" id="tDl-c5-zkU"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1M-ce-Tdh">
                                         <rect key="frame" x="0.0" y="136" width="600" height="367"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-Qp-Ldi">
-                                                <rect key="frame" x="20" y="76" width="560" height="90"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="wvh-fA-Q55"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-0D-kP8">
                                                 <rect key="frame" x="20" y="20" width="560" height="30"/>
                                                 <constraints>
@@ -714,6 +753,14 @@
                                                 <rect key="frame" x="20" y="63" width="560" height="5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-Qp-Ldi">
+                                                <rect key="frame" x="20" y="76" width="560" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="wvh-fA-Q55"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -754,10 +801,14 @@
                             <constraint firstAttribute="trailing" secondItem="yRI-32-Thb" secondAttribute="trailing" id="tDU-jt-Lxw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextFIeld" destination="4ZL-Qp-Ldi" id="swS-Pl-dqF"/>
+                        <outlet property="titleTextField" destination="aRM-0D-kP8" id="mnj-XL-BSz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDC-22-41C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-240" y="2441"/>
+            <point key="canvasLocation" x="-332" y="2503"/>
         </scene>
         <!--PostView-->
         <scene sceneID="t5K-Tb-SuA">
@@ -860,12 +911,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTy-vc-YTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="3431"/>
+            <point key="canvasLocation" x="-325" y="3363"/>
         </scene>
-        <!--Sub GroupVC-->
+        <!--SubgroupVC-->
         <scene sceneID="KyB-Dn-21F">
             <objects>
-                <viewController id="9Rr-Lq-Fgn" customClass="SubGroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Rr-Lq-Fgn" customClass="SubgroupVC" customModule="subline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7kL-Bi-X2G"/>
                         <viewControllerLayoutGuide type="bottom" id="ufq-5I-CaS"/>
@@ -915,7 +966,7 @@
                                             <constraint firstAttribute="height" constant="570" id="Hf8-a9-7Nu"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Vuz-qA-9Iu">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Vuz-qA-9Iu">
                                                 <rect key="frame" x="0.0" y="20" width="600" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vuz-qA-9Iu" id="K0W-Zd-F8H">
@@ -939,6 +990,16 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                         <state key="normal" title="+"/>
+                                        <connections>
+                                            <segue destination="sm1-Qr-wi6" kind="show" identifier="toCreatePostVC" id="YwG-Z6-A53"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MU9-LC-YuR">
+                                        <rect key="frame" x="23" y="5" width="47" height="30"/>
+                                        <state key="normal" title="&lt; back"/>
+                                        <connections>
+                                            <segue destination="jKq-VO-HJt" kind="show" identifier="toAllSubgroupsVC" id="iUZ-eI-Djg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -988,11 +1049,12 @@
                     </view>
                     <connections>
                         <outlet property="postTableView" destination="kle-p7-QFU" id="Rpo-yO-boL"/>
+                        <segue destination="gPq-j7-dEL" kind="show" identifier="toShowPostVC" id="IgA-uA-gkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xO0-Tm-D5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-240" y="3431"/>
+            <point key="canvasLocation" x="-1097" y="3081"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pNB-3n-j9b">
@@ -1014,6 +1076,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UjV-xj-6WN"/>
+        <segue reference="WbF-8Q-Eq7"/>
+        <segue reference="gMb-xF-wor"/>
+        <segue reference="qL5-gd-4G8"/>
+        <segue reference="D2U-UG-uBX"/>
+        <segue reference="1VG-q4-0mC"/>
+        <segue reference="tDl-c5-zkU"/>
+        <segue reference="iUZ-eI-Djg"/>
     </inferredMetricsTieBreakers>
 </document>

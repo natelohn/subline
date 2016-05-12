@@ -15,31 +15,53 @@ class CreateSubgroupVC: UIViewController {
     let brain = SubgroupBrain()
     
     let db = DataBase()
-    var username:String = ""
+    var username = ""
     var user = User()
+    var group = Group()
     var subgroup = Subgroup()
     var members = Set<String>()
     
     @IBOutlet weak var subgroupTextField: UITextField!
-    @IBOutlet weak var memberTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+
     
     override func viewDidLoad() {
-        user = db.getUserFromDB(username)
-        print("user: \(user.username)")
-        print("group:\(subgroup.name)")
-    }
-
-    @IBAction func addSubgroupPushed(sender: UIButton) {
-        let groupName = subgroupTextField.text!
-        subgroup = brain.createSubgroup(user.username, name: groupName, members:List<User>())
+        print("Create Subgroup's user = \(username)")
+        print("Create Subgroup's group = \(group.name)")
     }
     
-    @IBAction func addMemberPushed(sender: UIButton) {
-        let memberName = memberTextField.text!
-        members.insert(memberName)
-    }
 
     @IBAction func createSubgroupPushed(sender: UIButton) {
-        brain.addMemebersToSubgroup(members, subgroup: subgroup)
+        let subgroupName = subgroupTextField.text!
+        let subgroupDescription = descriptionTextField.text!
+        if subgroupName != "" &&  subgroupDescription != ""{
+            print("created group!")
+            brain.createSubgroup(group, creatorUsername: username, name: subgroupName, description: subgroupDescription, members: members)
+        } else {
+            let alert = UIAlertController(title: "Not Enough Info", message: "Please Add a Subgroup Name and Description", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Fine!!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toSelectUsersVC"{
+            let DestinationViewController : SelectUsersVC = segue.destinationViewController as! SelectUsersVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+            DestinationViewController.usersToDisplay = Array(group.members)
+            DestinationViewController.selectingGroupMembers = false
+        }
+        if segue.identifier == "toAllSubgroupsVC"{
+            let DestinationViewController : AllSubgroupsVC = segue.destinationViewController as! AllSubgroupsVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+        
+        }
+        
+    }
+    
 }

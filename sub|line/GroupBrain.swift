@@ -13,27 +13,12 @@ class GroupBrain {
     
     let db = DataBase()
     
-    func createGroup(creatorUsername:String, name:String, members:List<User>) -> Group{
+    func createGroup(creatorUsername:String, name:String, members:Set<String>){
         let newGroup = Group()
-        let creator = db.getUserFromDB(creatorUsername)
-        newGroup.makeNewGroup(creatorUsername, name: name, members: members)
-        newGroup.addMember(creator)
-        creator.addGroup(newGroup)
-        return newGroup
-    }
-    
-    func addMemebersToGroup(memberUsernames:Set<String>, group:Group){
-        for username in memberUsernames {
-            if db.isUser(username){
-                let user = db.getUserFromDB(username)
-                group.addMember(user)
-            }
+        newGroup.makeNewGroup(creatorUsername, name: name)
+        newGroup.addMember(creatorUsername)
+        for member in members {
+            newGroup.addMember(member)
         }
-        db.printAllUsers()
     }
-    
-    
-    
-    
-    
 }

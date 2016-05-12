@@ -8,25 +8,25 @@
 
 import UIKit
 
-class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
-    
-    var hardcodeUsers = ["Nate", "Chris", "Hailey"]
-    var hardcodePosts = ["hahahah", "wtf?", "Ahhhhh!"]
-    var hardcodeTimes = [NSDate(), NSDate(), NSDate()]
-    
+class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var userTextfield: UITextField!
     @IBOutlet weak var postTextfield: UITextField!
     @IBOutlet weak var postTableView: UITableView!
     
+    var username = ""
+    var group = Group()
     var subgroup = Subgroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Subgroup's username = \(username)")
+        print("Subgroup's group = \(group.name)")
+        print("Subgroup's subgroup = \(subgroup.name)")
         let nib = UINib(nibName: "PostTableCellView", bundle: nil)
         postTableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubGroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubgroupVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     //keyboard view logic
@@ -51,48 +51,45 @@ class SubGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return subgroup.getAllPosts().count
-        return hardcodeUsers.count
+        return subgroup.posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        let post = subgroup.posts[indexPath.row]
         let cell:PostTableCell = self.postTableView.dequeueReusableCellWithIdentifier("cell") as! PostTableCell
-//        let post = subgroup.getAllPosts()[indexPath.row]
-//        cell.userLabel.text = post.getUser()
-//        cell.postLabel.text = post.getText()
-//        cell.dateLabel.text = post.getDate()
-        cell.userLabel.text = hardcodeUsers[indexPath.row]
-        cell.postLabel.text = hardcodePosts[indexPath.row]
-        cell.dateLabel.text = "12:34"
-        
-    
+        cell.post = post
+        cell.username = username
+        cell.userLabel!.text = post.creator
+        cell.dateLabel.text! = post.getDate()
+        cell.titleLabel.text! = post.title
+        cell.descriptionLabel.text! = post.descript
+        cell.scoreLabel.text! = String(post.getScore())
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Row \(indexPath.row) selected")
+//        print("Row \(indexPath.row) selected")
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 168 //height of the post table cell in the xib file
     }
     
-    @IBAction func postButtonPushed(sender: UIButton) {
-        print("user makes a post")
-        let userText = userTextfield.text!
-        let postText = postTextfield.text!
-        let date = NSDate()
-        
-        let post = Post()
-        post.setUser(userText)
-        post.setText(postText)
-        post.setDate(date)
-        print(post.getDate())
-//        subgroup.addPost(post)
-        
-        postTableView.reloadData()
-    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toAllSubgroupsVC"{
+            let DestinationViewController : AllSubgroupsVC = segue.destinationViewController as! AllSubgroupsVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+
+        }
+        if segue.identifier == "toCreatePostVC"{
+            let DestinationViewController : CreatePostVC = segue.destinationViewController as!CreatePostVC
+            DestinationViewController.username = username
+            DestinationViewController.group = group
+            DestinationViewController.subgroup = subgroup
+            
+        }
+    }
 
 }

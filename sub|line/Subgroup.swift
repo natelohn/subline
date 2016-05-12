@@ -14,15 +14,16 @@ class Subgroup: Object {
     
     dynamic var name = ""
     dynamic var creator = ""
+    dynamic var descript = ""
     let members = List<User>()
-    //list of posts
+    let posts = List<Post>()
     
     
     
-    func makeNewSubgroup(creator:String, name:String, members:List<User>){
+    func makeNewSubgroup(creator:String, name:String, descript:String){
         self.creator = creator
         self.name = name
-        self.members.appendContentsOf(members)
+        self.descript = descript
     }
     
     
@@ -30,7 +31,8 @@ class Subgroup: Object {
         name = newName
     }
     
-    func addMember(newMember:User){
+    func addMember(username:String){
+        let newMember = DataBase().getUserFromDB(username)
         try! Realm().write {
             members.append(newMember)
         }
@@ -44,20 +46,13 @@ class Subgroup: Object {
         }
     }
   
-//    func addPost(post:Post){
-//        //to get posts to start at bottom, try adding a lot of blank posts & reversing the array on return
-//        posts.append(post)
-//    }
-//    
-//    func getAllPosts() -> [Post] {
-//        return posts
-//    }
-//    
-//    func printAllPosts() {
-//        for post in posts{
-//            print(post)
-//        }
-//    }
+    func addPost(post:Post){
+        //to get posts to start at bottom, try adding a lot of blank posts & reversing the array on return
+        try! Realm().write {
+            posts.append(post)
+        }
+    }
+    
     
 }
 
