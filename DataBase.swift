@@ -457,6 +457,14 @@ class DataBase {
         return timeString
     }
     
+    
+    func addFeedback(username:String, text:String){
+        let feedback = PFObject(className: "Feedback")
+        feedback["user"] = username
+        feedback["text"] = text
+        feedback.saveInBackground()
+    }
+    
 //    func getAllPostsFromSubgroup(subgroupName:String) -> [PFObject]{
 //        let subgroup = getSubgroup(subgroupName)
 //        for postID in subgroup["postIDs"] as! [String]{

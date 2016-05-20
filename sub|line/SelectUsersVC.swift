@@ -20,8 +20,6 @@ class SelectUsersVC: UIViewController {
     var groupID = ""
     
     @IBOutlet weak var usersTableView: UITableView!
-    @IBOutlet weak var addToGroupButton: UIButton!
-    @IBOutlet weak var addToSubgroupButton: UIButton!
     
     
     
@@ -30,11 +28,6 @@ class SelectUsersVC: UIViewController {
         self.usersTableView.allowsMultipleSelection = true
         print("Select Users user = \(username)")
         print("Selecting Users groupID = \(groupID)")
-        if selectingGroupMembers {
-            addToSubgroupButton.hidden = true
-        } else {
-            addToGroupButton.hidden = true
-        }
     }
     
     

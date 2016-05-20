@@ -65,9 +65,14 @@ class AllGroupsVC: UIViewController {
             DestinationViewController.username = username
             DestinationViewController.groupName = selectedGroupName
         }
+        
+        if segue.identifier == "toMenuVC"{
+            let DestinationViewController : MenuVC = segue.destinationViewController as! MenuVC
+            DestinationViewController.username = username
+        }
     }
     
-    
+
     
 
 }

@@ -23,30 +23,32 @@ class CommentTableCell: UITableViewCell {
     var userUpVoted = false
     var userDownVoted = false
     
+
+    
     
     @IBAction func upvotePused(sender: UIButton) {
-        print("up pushed")
+        print("comment up pushed")
         if !userUpVoted {
             print("\(username) upvoted")
             let newScore = Int(scoreLabel.text!)! + 1
             scoreLabel.text = String(newScore) //just subtract from label ammount
             db.addCommentVote(username, commentKey:commentKey, up:true)
-            upVoteButton.selected = true
-            downVoteButton.selected = false
+            upVoteButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+            downVoteButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             userDownVoted = false
             userUpVoted = true
         }
     }
 
     @IBAction func downvotePushed(sender: UIButton) {
-        print("down pushed")
+        print("comment down pushed")
         if !userDownVoted {
             print("\(username) downvoted")
             let newScore = Int(scoreLabel.text!)! - 1
             scoreLabel.text = String(newScore) //just subtract from label ammount
             db.addCommentVote(username, commentKey:commentKey, up:false)
-            upVoteButton.selected = false
-            downVoteButton.selected = true
+            upVoteButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            downVoteButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
             userDownVoted = true
             userUpVoted = false
         }

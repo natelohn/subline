@@ -12,6 +12,7 @@ import Parse
 class AllSubgroupsVC: UIViewController {
     
     @IBOutlet weak var subgroupTableView: UITableView!
+    @IBOutlet weak var groupButton: UIButton!
     
     var db = DataBase()
     var username = ""
@@ -20,12 +21,13 @@ class AllSubgroupsVC: UIViewController {
     var subgroupNames = [String]()
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         print("All subgroup's user = \(username)")
         print("All subgroup's group = \(groupName)")
         subgroupNames = db.getAllSubgroupNamesInGroup(groupName)
         subgroupTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        groupButton.titleLabel!.text! = groupName
     }
     
     

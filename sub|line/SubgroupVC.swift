@@ -62,10 +62,12 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         cell.scoreLabel.text! = String(post["score"])
         
         if userVotedUp {
-            cell.upButton.selected = true
+            cell.downButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            cell.upButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         }
         if userVotedDown {
-            cell.downButton.selected = true
+            cell.downButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            cell.upButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         }
         return cell
     }
@@ -76,7 +78,7 @@ class SubgroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 168 //height of the post table cell in the xib file
+        return 160 //height of the post table cell in the xib file
     }
     
     

@@ -33,11 +33,14 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         print("Post key = \(postKey)")
         let post = db.getPost(postKey)
         comments = db.getCommentsFromPost(post)
-        postCreatorAtPostTimeLabel.text! = post["posterUsername"] as! String + db.getDateStringFromPFObject(post)
+        postCreatorAtPostTimeLabel.text! = post["posterUsername"] as! String + " - " +  db.getDateStringFromPFObject(post)
         titleLabel.text! = post["title"] as! String
         descriptionLabel.text! = post["description"] as! String
         let nib = UINib(nibName: "CommentTableCellView", bundle: nil)
         commentsTableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        commentsTableView.allowsSelection = false
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostVC.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostVC.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
@@ -52,7 +55,6 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print ("There are \(comments.count) comments!")
         return comments.count
     }
     
@@ -62,26 +64,34 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let userVotedUp = db.userVotedUpComment(username, commentKey:key)
         let userVotedDown = db.userVotedDownComment(username, commentKey:key)
         let cell:CommentTableCell = self.commentsTableView.dequeueReusableCellWithIdentifier("cell") as! CommentTableCell
-        cell.username = username
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.username = comment["username"] as! String
         cell.commentKey = key
         cell.userUpVoted = userVotedUp
         cell.userDownVoted = userVotedDown
         cell.userLabel.text = comment["username"] as? String
         cell.commentLabel.text = comment["text"] as? String
-        cell.scoreLabel.text = String(comment["score"])
+//        cell.scoreLabel.text = String(comment["score"])
         cell.timeLabel.text = db.getDateStringFromPFObject(comment)
+        cell.userInteractionEnabled = true
         if userVotedUp {
-            cell.upVoteButton.selected = true
+//            cell.downVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+//            cell.upVoteButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         }
         if userVotedDown {
-            cell.downVoteButton.selected = true
+//            cell.upVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+//            cell.downVoteButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        }
+        if cell.username == username {
+            cell.commentLabel.textAlignment = NSTextAlignment.Right
         }
         return cell
     }
     
     
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-       return 100 //height of the post table cell in the xib file
+       return 40 //height of the post table cell in the xib file
     }
     
     
@@ -92,6 +102,18 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if newCommentTextField.editing{
+            let keyboardFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            self.view.window?.frame.origin.y = -1 * keyboardFrame.height
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let keyboardFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        self.view.window?.frame.origin.y += keyboardFrame.height
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
