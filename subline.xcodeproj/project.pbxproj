@@ -508,11 +508,9 @@
 				INFOPLIST_FILE = "sub|line/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
+
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.nlohn.subline;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cdsackes.subline;
->>>>>>> new_views
+
 				PRODUCT_NAME = subline;
 				PROVISIONING_PROFILE = "";
 			};
@@ -535,11 +533,9 @@
 				INFOPLIST_FILE = "sub|line/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
+
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.nlohn.subline;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cdsackes.subline;
->>>>>>> new_views
+
 				PRODUCT_NAME = subline;
 				PROVISIONING_PROFILE = "";
 			};

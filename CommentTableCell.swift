@@ -25,6 +25,7 @@ class CommentTableCell: UITableViewCell {
     
     
     @IBAction func upvotePused(sender: UIButton) {
+        print("up pushed")
         if !userUpVoted {
             print("\(username) upvoted")
             let newScore = Int(scoreLabel.text!)! + 1
@@ -38,6 +39,7 @@ class CommentTableCell: UITableViewCell {
     }
 
     @IBAction func downvotePushed(sender: UIButton) {
+        print("down pushed")
         if !userDownVoted {
             print("\(username) downvoted")
             let newScore = Int(scoreLabel.text!)! - 1

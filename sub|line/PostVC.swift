@@ -11,8 +11,8 @@ import Parse
 
 class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
-    @IBOutlet weak var postCreatorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var postCreatorAtPostTimeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var newCommentTextField: UITextField!
@@ -33,7 +33,7 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         print("Post key = \(postKey)")
         let post = db.getPost(postKey)
         comments = db.getCommentsFromPost(post)
-        postCreatorLabel.text! = post["posterUsername"] as! String
+        postCreatorAtPostTimeLabel.text! = post["posterUsername"] as! String + db.getDateStringFromPFObject(post)
         titleLabel.text! = post["title"] as! String
         descriptionLabel.text! = post["description"] as! String
         let nib = UINib(nibName: "CommentTableCellView", bundle: nil)
