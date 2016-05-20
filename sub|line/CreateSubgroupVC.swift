@@ -14,12 +14,9 @@ class CreateSubgroupVC: UIViewController {
     
     let brain = SubgroupBrain()
     
-    let db = DataBase()
+    var db = DataBase()
     var username = ""
-    var user = User()
-    var group = Group()
-    var subgroup = Subgroup()
-    var members = Set<String>()
+    var groupName = ""
     
     @IBOutlet weak var subgroupTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -27,18 +24,18 @@ class CreateSubgroupVC: UIViewController {
     
     override func viewDidLoad() {
         print("Create Subgroup's user = \(username)")
-        print("Create Subgroup's group = \(group.name)")
+        print("Create Subgroup's groupname = \(groupName)")
     }
     
 
     @IBAction func createSubgroupPushed(sender: UIButton) {
         let subgroupName = subgroupTextField.text!
         let subgroupDescription = descriptionTextField.text!
-        if subgroupName != "" &&  subgroupDescription != ""{
+        if subgroupName != "" &&  subgroupDescription != "" && !db.subgroupNameExists(subgroupName){
             print("created group!")
-            brain.createSubgroup(group, creatorUsername: username, name: subgroupName, description: subgroupDescription, members: members)
+            db.addSubgroup(subgroupName, description: subgroupDescription, groupName: groupName)
         } else {
-            let alert = UIAlertController(title: "Not Enough Info", message: "Please Add a Subgroup Name and Description", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Invalid Info", message: "Please Pick a new Subgroup Name and have a Description", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Fine!!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -46,20 +43,22 @@ class CreateSubgroupVC: UIViewController {
     }
     
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        subgroupTextField.resignFirstResponder()
+        descriptionTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toSelectUsersVC"{
-            let DestinationViewController : SelectUsersVC = segue.destinationViewController as! SelectUsersVC
-            DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.usersToDisplay = Array(group.members)
-            DestinationViewController.selectingGroupMembers = false
-        }
         if segue.identifier == "toAllSubgroupsVC"{
             let DestinationViewController : AllSubgroupsVC = segue.destinationViewController as! AllSubgroupsVC
             DestinationViewController.username = username
-            DestinationViewController.group = group
-        
+            DestinationViewController.groupName = groupName
         }
         
     }

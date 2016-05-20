@@ -10,12 +10,9 @@ import Foundation
 
 class PostBrain {
     
-    func createPost(subgroup:Subgroup, creator:String, title:String, description:String){
-        let post = Post()
-        let date = NSDate()
-        post.createPost(creator, title: title, description: description, date: date)
-        subgroup.addPost(post)
-    }
     
+    let db = DataBase()
+    
+
     
 }

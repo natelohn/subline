@@ -16,26 +16,31 @@ class CreatePostVC: UIViewController {
     
     let brain = PostBrain()
     
+    let db = DataBase()
     var username = ""
+    var groupName = ""
+    var subgroupName = ""
+    
     var group = Group()
     var subgroup = Subgroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Create Post's username = \(username)")
-        print("Create Post's group = \(group.name)")
-        print("Create Post's subgroup = \(subgroup.name)")
+        print("Create Post's group = \(groupName)")
+        print("Create Post's subgroup = \(subgroupName)")
     }
     
     
     @IBAction func postButtonPushed(sender: UIButton) {
         let title = titleTextField.text!
         let description = descriptionTextFIeld.text!
-        if title != "" && description != "" {
+        let key = title + description
+        if title != "" && description != "" && !db.postKeyExists(key){
             print("post!")
-            brain.createPost(subgroup, creator: username, title: title, description: description)
+            db.addPost(username, title: title, description: description, key:key, subgroupName:subgroupName)
         } else {
-            let alert = UIAlertController(title: "Not Enough Info", message: "Please Add a Title and Description", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Invalid Info", message: "Please Edit the Title or Description", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Whoops!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -45,7 +50,8 @@ class CreatePostVC: UIViewController {
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "toSubgroupVC" {
-            if  titleTextField.text! == "" || descriptionTextFIeld.text! == "" {
+            let key = titleTextField.text! + descriptionTextFIeld.text!
+            if  titleTextField.text! == "" || descriptionTextFIeld.text! == "" || db.postKeyExists(key) {
                 return false
             }
             return true
@@ -53,22 +59,25 @@ class CreatePostVC: UIViewController {
         return true
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        descriptionTextFIeld.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toSubgroupVC"{
+        if segue.identifier == "toSubgroupVC" || segue.identifier == "toSubgroupVC2" {
             let DestinationViewController : SubgroupVC = segue.destinationViewController as! SubgroupVC
             DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.subgroup = subgroup
+            DestinationViewController.groupName = groupName
+            DestinationViewController.subgroupName = subgroupName
+//            DestinationViewController.posts = db.getAllPostsInSubgroup(subgroupName)
             
         }
-        if segue.identifier == "toSubgroupVC2"{
-            let DestinationViewController : SubgroupVC = segue.destinationViewController as! SubgroupVC
-            DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.subgroup = subgroup
-            
-        }
-
         
     }
     

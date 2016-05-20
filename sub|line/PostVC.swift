@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -16,20 +17,25 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var newCommentTextField: UITextField!
     
+    var db = DataBase()
     var username = ""
-    var group = Group()
-    var subgroup = Subgroup()
-    var post = Post()
+    var groupName = ""
+    var subgroupName = ""
+    var posts = [PFObject]()
+    var postKey = ""
+    var comments = [PFObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Post username =\(username)")
-        print("Post group =\(group.name)")
-        print("Post subgroup =\(subgroup.name)")
-        print("Post post =\(post.title)")
-        postCreatorLabel.text! = post.creator
-        titleLabel.text! = post.title
-        descriptionLabel.text! = post.descript
+        print("Post username = \(username)")
+        print("Post group = \(groupName)")
+        print("Post subgroup = \(subgroupName)")
+        print("Post key = \(postKey)")
+        let post = db.getPost(postKey)
+        comments = db.getCommentsFromPost(post)
+        postCreatorLabel.text! = post["posterUsername"] as! String
+        titleLabel.text! = post["title"] as! String
+        descriptionLabel.text! = post["description"] as! String
         let nib = UINib(nibName: "CommentTableCellView", bundle: nil)
         commentsTableView.registerNib(nib, forCellReuseIdentifier: "cell")
     }
@@ -37,30 +43,37 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     
     @IBAction func sendButtonPushed(sender: UIButton) {
-        let newComment = Comment()
-        let comment = newCommentTextField.text!
-        newComment.createComment(username, comment:comment)
-        post.addComment(newComment)
+        let text = newCommentTextField.text!
+        db.addComment(username, text: text, postKey: postKey)
+        newCommentTextField.text! = ""
+        comments = db.getComments(postKey)
         commentsTableView.reloadData()
     }
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return post.comments.count
+        print ("There are \(comments.count) comments!")
+        return comments.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let comment = post.comments[indexPath.row]
+        let comment = comments[indexPath.row]
+        let key = comment["key"] as! String
+        let userVotedUp = db.userVotedUpComment(username, commentKey:key)
+        let userVotedDown = db.userVotedDownComment(username, commentKey:key)
         let cell:CommentTableCell = self.commentsTableView.dequeueReusableCellWithIdentifier("cell") as! CommentTableCell
         cell.username = username
-        cell.userLabel.text = comment.commentor
-        cell.commentLabel.text = comment.comment
-        cell.scoreLabel.text = String(comment.score)
-        cell.timeLabel.text = comment.timeString
-        if comment.votedUp(username){
+        cell.commentKey = key
+        cell.userUpVoted = userVotedUp
+        cell.userDownVoted = userVotedDown
+        cell.userLabel.text = comment["username"] as? String
+        cell.commentLabel.text = comment["text"] as? String
+        cell.scoreLabel.text = String(comment["score"])
+        cell.timeLabel.text = db.getDateStringFromPFObject(comment)
+        if userVotedUp {
             cell.upVoteButton.selected = true
         }
-        if post.votedDown(username){
+        if userVotedDown {
             cell.downVoteButton.selected = true
         }
         return cell
@@ -72,13 +85,22 @@ class PostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     }
     
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        newCommentTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toSubgroupVC"{
             let DestinationViewController : SubgroupVC = segue.destinationViewController as! SubgroupVC
             DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.subgroup = subgroup
-            
+            DestinationViewController.groupName = groupName
+            DestinationViewController.subgroupName = subgroupName
+            DestinationViewController.posts = posts
         }
         
     }

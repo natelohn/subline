@@ -7,16 +7,31 @@
 //
 
 import Foundation
-import RealmSwift
+import Parse
 
 
 class LoginBrain {
     
-    let realm = try! Realm()
+    let db = DataBase()
     
     func login(username:String, password:String) -> Bool{
-        let user = realm.objects(User).filter("username == '\(username)' AND password == '\(password)'").first
-        return user != nil
+        if username == "" || password == ""{
+            return false
+        } else {
+            let allUsers = db.getAllUsers()
+            print(allUsers.count)
+            for user in allUsers {
+                let usernameString = user["username"] as! String
+                let passwordString = user["password"] as! String
+                if  usernameString == username && passwordString == password {
+                    print("returns true")
+                    return true
+                }
+            }
+        }
+        print("returns false")
+        return false
+        
     }
     
 }

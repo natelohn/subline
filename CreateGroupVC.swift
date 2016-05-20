@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import RealmSwift
+import Parse
 
 class CreateGroupVC: UIViewController {
     
     let brain = GroupBrain()
     
-    let db = DataBase()
-    var user = User()
+    var db = DataBase()
     var username = ""
-    var group = Group()
-    var members = Set<String>()
+    var groupName = ""
+    var memberUsernames = [String]()
     
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var allUsersTableView: UITableView!
@@ -28,21 +27,17 @@ class CreateGroupVC: UIViewController {
         super.viewDidLoad()
         self.allUsersTableView.allowsMultipleSelection = true
         print("Create New Group's user = \(username)")
-        
-        user = db.getUserFromDB(username)
-        
-        
-//        print("user = \(user.username)")
     }
     
     
     @IBAction func createGroupPushed(sender: UIButton) {
         let groupName = groupNameTextField.text!
-        if groupName != "" {
+        if groupName != "" && !db.groupNameExists(groupName){
             print("created group!")
-            brain.createGroup(user.username, name: groupName, members:members)
+            memberUsernames.append(username)
+            db.addGroup(groupName, memberUsernames:memberUsernames)
         } else {
-            let alert = UIAlertController(title: "No Group Name", message: "Please Add a Group Name", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Invalid Group Name", message: "Please Pick a Different Group Name", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Fine!!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -51,45 +46,43 @@ class CreateGroupVC: UIViewController {
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Array(members).count
+        return Array(memberUsernames).count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell? {
         let cell = allUsersTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.text = Array(members)[indexPath.row]
+        cell.textLabel!.text = memberUsernames[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
-        members.insert(memberName)
-        print("\(memberName) added")
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
-        members.remove(memberName)
-        print("\(memberName) removed")
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
+//        members.insert(memberName)
+//        print("\(memberName) added")
+//    }
+//    
+//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+//        let memberName:String = (allUsersTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!
+//        members.remove(memberName)
+//        print("\(memberName) removed")
+//    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50 //height of the post table cell in the xib file
     }
     
-    
-    
-    //segue logic
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "toAllGroupsVC" {
-            if  username == "" {
-                return false
-            } else {
-                return true
-            }
-        }
+    //text logic
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        groupNameTextField.resignFirstResponder()
         return true
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    //segue logic
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toAllGroupsVC"{
             let DestinationViewController : AllGroupsVC = segue.destinationViewController as! AllGroupsVC
@@ -98,8 +91,8 @@ class CreateGroupVC: UIViewController {
         
         if segue.identifier == "toSelectUsersVC"{
             let DestinationViewController : SelectUsersVC = segue.destinationViewController as! SelectUsersVC
-             DestinationViewController.username = username
-            DestinationViewController.usersToDisplay = db.getAllOtherUsers(username)
+            DestinationViewController.username = username
+            DestinationViewController.usernamesToDisplay = db.getAllOtherUsernames(username)
         }
     }
     

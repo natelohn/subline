@@ -15,8 +15,8 @@ class Post : Object{
     dynamic var descript = ""
     dynamic var time = ""
     private dynamic var score = 0
-    let upvotes = List<User>()
-    let downvotes = List<User>()
+    let upvotes = [User]()
+    let downvotes = [User]()
     let comments = List<Comment>()
     //time of post
     
@@ -45,22 +45,7 @@ class Post : Object{
     }
     
     func addVote(username:String, up:Bool){
-        let user = DataBase().getUserFromDB(username)
-        if up {
-            try! Realm().write {
-                upvotes.append(user)
-                if votedDown(username){
-                    downvotes.removeAtIndex(downvotes.indexOf(user)!)
-                }
-            }
-        } else {
-            try! Realm().write {
-                downvotes.append(user)
-                if votedUp(username){
-                    upvotes.removeAtIndex(upvotes.indexOf(user)!)
-                }
-            }
-        }
+
     }
     
     func votedUp(username:String) -> Bool{

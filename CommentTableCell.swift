@@ -17,29 +17,36 @@ class CommentTableCell: UITableViewCell {
     @IBOutlet weak var downVoteButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
 
-
-    var comment = Comment()
+    let db = DataBase()
+    var commentKey = ""
     var username = ""
+    var userUpVoted = false
+    var userDownVoted = false
+    
     
     @IBAction func upvotePused(sender: UIButton) {
-        if !comment.votedUp(username) {
+        if !userUpVoted {
             print("\(username) upvoted")
-            comment.updateScore(1)
-            scoreLabel.text = String(comment.score)
-            comment.addVote(username, up: true)
+            let newScore = Int(scoreLabel.text!)! + 1
+            scoreLabel.text = String(newScore) //just subtract from label ammount
+            db.addCommentVote(username, commentKey:commentKey, up:true)
             upVoteButton.selected = true
             downVoteButton.selected = false
+            userDownVoted = false
+            userUpVoted = true
         }
     }
 
     @IBAction func downvotePushed(sender: UIButton) {
-        if !comment.votedDown(username) {
+        if !userDownVoted {
             print("\(username) downvoted")
-            comment.updateScore(-1)
-            scoreLabel.text = String(comment.score)
-            comment.addVote(username, up: false)
+            let newScore = Int(scoreLabel.text!)! - 1
+            scoreLabel.text = String(newScore) //just subtract from label ammount
+            db.addCommentVote(username, commentKey:commentKey, up:false)
             upVoteButton.selected = false
             downVoteButton.selected = true
+            userDownVoted = true
+            userUpVoted = false
         }
     }
 }

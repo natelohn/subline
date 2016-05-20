@@ -11,14 +11,16 @@ import RealmSwift
 
 class GroupBrain {
     
-    let db = DataBase()
     
-    func createGroup(creatorUsername:String, name:String, members:Set<String>){
-        let newGroup = Group()
-        newGroup.makeNewGroup(creatorUsername, name: name)
-        newGroup.addMember(creatorUsername)
-        for member in members {
-            newGroup.addMember(member)
-        }
-    }
+//    func createGroup(name:String, members:Set<String>{
+//        let newGroup = Group()
+//        newGroup.makeNewGroup(creatorUsername, name: name)
+//        newGroup.addMember(creatorUsername)
+//        for member in members {
+//            newGroup.addMember(member)
+//        }
+//        var allmembers = members
+//        allmembers.insert(creatorUsername)
+////        db.saveGroup(allmembers, newGroup:newGroup)
+//    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostTableCell: UITableViewCell {
 
@@ -18,29 +19,39 @@ class PostTableCell: UITableViewCell {
     @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    var post = Post()
+    let db = DataBase()
+    let brain = PostBrain()
+    var postKey = ""
     var username = ""
+    var userUpVoted = false
+    var userDownVoted = false
+    
     
     @IBAction func upVote(sender: UIButton) {
-        if !post.votedUp(username) {
+        if !userUpVoted {
             print("\(username) upvoted")
-            post.updateScore(1)
-            scoreLabel.text = String(post.getScore())
-            post.addVote(username, up: true)
+            let newScore = Int(scoreLabel.text!)! + 1
+            scoreLabel.text = String(newScore) //just subtract from label ammount
+            db.addVote(username, postKey: postKey, up:true)
             upButton.selected = true
             downButton.selected = false
+            userDownVoted = false
+            userUpVoted = true
         }
     }
     
     @IBAction func downVote(sender: UIButton) {
-        if !post.votedDown(username) {
+        if !userDownVoted {
             print("\(username) downvoted")
-            post.updateScore(-1)
-            scoreLabel.text = String(post.getScore())
-            post.addVote(username, up: false)
+            let newScore = Int(scoreLabel.text!)! - 1
+            scoreLabel.text = String(newScore) //just subtract from label ammount
+            db.addVote(username, postKey: postKey, up:false)
             upButton.selected = false
             downButton.selected = true
+            userDownVoted = true
+            userUpVoted = false
         }
+
     }
     
 

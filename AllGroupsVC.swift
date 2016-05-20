@@ -7,21 +7,24 @@
 //
 
 import UIKit
-import RealmSwift
+import Parse
 
 class AllGroupsVC: UIViewController {
     
     @IBOutlet weak var groupTableView: UITableView!
     
-    let db = DataBase()
+    var db = DataBase()
     var username = ""
-    var user = User()
-    var selectedGroup = Group()
+    var selectedGroupName = ""
+    var groupnames = [String]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("All Groups VC's user = \(username)")
-        user = db.getUserFromDB(username)
+        groupnames = db.getAllUsersGroupNames(username)
+        print("All groups VC groupnames = \(groupnames)")
         groupTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -29,18 +32,18 @@ class AllGroupsVC: UIViewController {
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.groups.count
+        return groupnames.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = groupTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.text = user.groups[indexPath.row].name
+        cell.textLabel!.text = groupnames[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("Row \(indexPath.row) selected")
-        selectedGroup = user.groups[indexPath.row]
+        selectedGroupName = groupnames[indexPath.row]
+        print("selected = \(selectedGroupName)")
         self.performSegueWithIdentifier("toAllSubgroupsVC", sender: self) //not sure if self should be something else
         
     }
@@ -60,8 +63,7 @@ class AllGroupsVC: UIViewController {
         if segue.identifier == "toAllSubgroupsVC"{
             let DestinationViewController : AllSubgroupsVC = segue.destinationViewController as! AllSubgroupsVC
             DestinationViewController.username = username
-            DestinationViewController.group = selectedGroup
-            
+            DestinationViewController.groupName = selectedGroupName
         }
     }
     

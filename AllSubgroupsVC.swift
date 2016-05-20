@@ -7,22 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 class AllSubgroupsVC: UIViewController {
     
     @IBOutlet weak var subgroupTableView: UITableView!
     
-    let db = DataBase()
+    var db = DataBase()
     var username = ""
-    var user = User()
-    var group = Group()
-    var selectedSubgroup = Subgroup()
+    var groupName = ""
+    var selectedSubgroupName = ""
+    var subgroupNames = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("All subgroup's user = \(username)")
-        print("All subgroup's group = \(group.name)")
-        user = db.getUserFromDB(username)
+        print("All subgroup's group = \(groupName)")
+        subgroupNames = db.getAllSubgroupNamesInGroup(groupName)
         subgroupTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -30,18 +32,17 @@ class AllSubgroupsVC: UIViewController {
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return group.subgroups.count
+        return subgroupNames.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = subgroupTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.text = group.subgroups[indexPath.row].name
+        cell.textLabel!.text = subgroupNames[indexPath.row] //name of group
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("Row \(indexPath.row) selected")
-        selectedSubgroup = group.subgroups[indexPath.row]
+        selectedSubgroupName = subgroupNames[indexPath.row]
         self.performSegueWithIdentifier("toSubgroupVC", sender: self) //not sure if self should be something else
         
     }
@@ -60,15 +61,15 @@ class AllSubgroupsVC: UIViewController {
         if segue.identifier == "toCreateSubgroupVC"{
             let DestinationViewController : CreateSubgroupVC = segue.destinationViewController as! CreateSubgroupVC
             DestinationViewController.username = username
-            DestinationViewController.group = group
+            DestinationViewController.groupName = groupName
         }
         
         if segue.identifier == "toSubgroupVC"{
             let DestinationViewController : SubgroupVC = segue.destinationViewController as! SubgroupVC
             DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.subgroup = selectedSubgroup
-            
+            DestinationViewController.groupName = groupName
+            DestinationViewController.subgroupName = selectedSubgroupName
+//            DestinationViewController.posts = db.getAllPostsInSubgroup(selectedSubgroupName)
         }
     }
     

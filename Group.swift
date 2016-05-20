@@ -7,16 +7,17 @@
 //
 
 import Foundation
-import RealmSwift
 
-class Group: Object {
+class Group {
     
-    dynamic var creator = ""
-    dynamic var name = ""
-    let members = List<User>()
-    let subgroups = List<Subgroup>()
-    //array of subgroups
+    var parseID = ""
+    var name = ""
     
+    ///////////////////////////
+    
+    var creator = ""
+    var members = [User]()
+    var subgroups = [Subgroup]()
     
     
     func makeNewGroup(creator:String, name:String){
@@ -30,25 +31,19 @@ class Group: Object {
     }
     
     func addMember(newMemberUsername:String){
-        let newMember = DataBase().getUserFromDB(newMemberUsername)
-        newMember.addGroup(self)
-        try! Realm().write {
-            members.append(newMember)
-        }
+
     }
     
     func removeMember(exMember:User){
         for (index, member) in members.enumerate() {
-            if member == exMember{
+            if member.username == exMember.username{
                 members.removeAtIndex(index)
             }
         }
     }
     
     func addSubgroup(newSubgroup:Subgroup){
-        try! Realm().write {
-            subgroups.append(newSubgroup)
-        }
+        subgroups.append(newSubgroup)
     }
     
     func removeSubgroup(exSubgroup:Subgroup){

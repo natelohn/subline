@@ -15,7 +15,7 @@ class Subgroup: Object {
     dynamic var name = ""
     dynamic var creator = ""
     dynamic var descript = ""
-    let members = List<User>()
+    var members = [User]()
     let posts = List<Post>()
     
     
@@ -32,15 +32,12 @@ class Subgroup: Object {
     }
     
     func addMember(username:String){
-        let newMember = DataBase().getUserFromDB(username)
-        try! Realm().write {
-            members.append(newMember)
-        }
+
     }
     
     func removeMember(exMember:User){
         for (index, member) in members.enumerate() {
-            if member == exMember{
+            if member.username == exMember.username{
                 members.removeAtIndex(index)
             }
         }

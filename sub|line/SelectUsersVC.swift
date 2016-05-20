@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import Parse
 
 class SelectUsersVC: UIViewController {
     
 //    let brain = SelectUsersBrain()
     
     var username = ""
-    var usersToDisplay = [User]()
+    var usernamesToDisplay = [String]()
     var selectedUsernames = Set<String>()
     var selectingGroupMembers = true
-    var group = Group()
+    var groupID = ""
     
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var addToGroupButton: UIButton!
@@ -27,8 +28,8 @@ class SelectUsersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usersTableView.allowsMultipleSelection = true
-        print("Select Users username = \(username)")
-        print("Selecting Users group = \(group.name)")
+        print("Select Users user = \(username)")
+        print("Selecting Users groupID = \(groupID)")
         if selectingGroupMembers {
             addToSubgroupButton.hidden = true
         } else {
@@ -49,12 +50,12 @@ class SelectUsersVC: UIViewController {
     
     //table view logic
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersToDisplay.count
+        return usernamesToDisplay.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell? {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.text = usersToDisplay[indexPath.row].username
+        cell.textLabel!.text = usernamesToDisplay[indexPath.row]
         return cell
     }
     
@@ -79,13 +80,8 @@ class SelectUsersVC: UIViewController {
         if segue.identifier == "toCreateGroupVC"{
             let DestinationViewController : CreateGroupVC = segue.destinationViewController as! CreateGroupVC
             DestinationViewController.username = username
-            DestinationViewController.members = selectedUsernames
-        }
-        if segue.identifier == "toCreateSubgroupVC"{
-            let DestinationViewController : CreateSubgroupVC = segue.destinationViewController as! CreateSubgroupVC
-            DestinationViewController.username = username
-            DestinationViewController.group = group
-            DestinationViewController.members = selectedUsernames
+            DestinationViewController.memberUsernames = Array(selectedUsernames)
+            
         }
     }
     
